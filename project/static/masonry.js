@@ -20573,6 +20573,7 @@
 	      dataType: 'json',
 	      cache: false,
 	      success: function (data) {
+	        console.log(data);
 	        this.setState({ tasks: data.tasks, task: data.tasks[0] });
 	        /*
 	        data.map(function(task, i) {
@@ -20605,17 +20606,20 @@
 	  },
 	  selectTask: function selectTask(task) {
 	    var self = this;
-	    _jquery2.default.ajax({
-	      url: task.uri,
-	      dataType: 'json',
-	      cache: false,
-	      success: function (data) {
-	        self.setState({ task: data.task });
-	      }.bind(this),
-	      error: function (xhr, status, err) {
-	        console.error("/tasks", status, err.toString());
-	      }.bind(this)
-	    });
+	    if (task) {
+	      console.log(task.uri);
+	      _jquery2.default.ajax({
+	        url: "/tasks/" + task.id,
+	        dataType: 'json',
+	        cache: false,
+	        success: function (data) {
+	          self.setState({ task: data.task });
+	        }.bind(this),
+	        error: function (xhr, status, err) {
+	          console.error("/tasks", status, err.toString());
+	        }.bind(this)
+	      });
+	    }
 	  },
 	
 	  render: function render() {
