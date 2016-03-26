@@ -8,7 +8,8 @@ import subprocess
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config.update(
-    DEBUG=True,
+    threaded=True,
+    DEBUG=False,
     SECRET_KEY='qwk4l32jtgnk;l12q3j42;1lrnjt245^&%*^#%$WERG'
 )
 
@@ -187,4 +188,4 @@ if __name__ == '__main__':
         PORT = int(os.environ.get('SERVER_PORT', '5555'))
     except ValueError:
         PORT = 5555
-    app.run(HOST, PORT)
+    app.run(HOST, PORT, threaded=True)
