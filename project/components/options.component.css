@@ -1,0 +1,30 @@
+@media all {
+  :local(.item) {
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+  }
+  :local(.description) {
+    padding: 2px 2px;
+    font-style: italic;
+    font-size: large;
+  }
+  :local(label) {
+    margin: 2px 8px;
+    padding: 2px;
+    font-size: medium;
+  }
+  :local(input) {
+    margin: 4px 0;
+    padding: 2px;
+    font-size: small;
+    font-family: 'Open Sans Condensed', sans-serif;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+  :local(.group) {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  }
+}

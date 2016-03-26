@@ -1,0 +1,43 @@
+@media all {
+  :local(.wrapper) {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    overflow: auto;
+    font-size: large;
+  }
+  :local(.selected) {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    margin: 4px;
+    cursor: pointer;
+  }
+  :local(.unselected) {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    margin: 4px;
+    cursor: pointer;
+  }
+  :local(.name) {
+    padding: 8px 16px;
+  }
+  :local(.description) {
+    padding: 8px 4px;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+  :local(.thumbnail) {
+    padding: 2px;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  :local(.selected .thumbnail) {
+    background-color: rgba(0, 0, 0, 1);
+  }
+}

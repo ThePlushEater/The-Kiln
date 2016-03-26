@@ -1,0 +1,22 @@
+{
+  "name": "Masonry",
+  "version": "0.0.1",
+  "authors": [
+    "Karl Kim <captainwhale52@gmail.com>"
+  ],
+  "description": "Masonary Texture Generator",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.2",
+    "react": "~0.12.2"
+  }
+}
