@@ -65,27 +65,51 @@
 	
 	var _dashboardComponent2 = _interopRequireDefault(_dashboardComponent);
 	
+	var _geometryComponent = __webpack_require__(/*! ./geometry.component.js */ 179);
+	
+	var _geometryComponent2 = _interopRequireDefault(_geometryComponent);
+	
+	var _navComponent = __webpack_require__(/*! ./nav.component.js */ 180);
+	
+	var _navComponent2 = _interopRequireDefault(_navComponent);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var AppComponent = _react2.default.createClass({
 	  displayName: 'AppComponent',
 	
+	  getInitialState: function getInitialState() {
+	    return { page: 0 };
+	  },
+	
+	  componentDidMount: function componentDidMount() {},
+	
 	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: _appComponent2.default.wrapper },
-	      _react2.default.createElement(
+	    if (this.state.page == 0) {
+	      return _react2.default.createElement(
 	        'div',
-	        { className: _appComponent2.default.title },
-	        'Masonry Texture Generator'
-	      ),
-	      _react2.default.createElement(_dashboardComponent2.default, null),
-	      _react2.default.createElement(
+	        { className: _appComponent2.default.wrapper },
+	        _react2.default.createElement(_navComponent2.default, null),
+	        _react2.default.createElement(_geometryComponent2.default, null),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _appComponent2.default.copyright },
+	          '© 2016 Dr. Gentry Corporation'
+	        )
+	      );
+	    } else if (this.state.page == 1) {
+	      return _react2.default.createElement(
 	        'div',
-	        { className: _appComponent2.default.copyright },
-	        '© 2016 Dr. Gentry Corporation'
-	      )
-	    );
+	        { className: _appComponent2.default.wrapper },
+	        _react2.default.createElement(_navComponent2.default, null),
+	        _react2.default.createElement(_geometryComponent2.default, null),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _appComponent2.default.copyright },
+	          '© 2016 Dr. Gentry Corporation'
+	        )
+	      );
+	    }
 	  }
 	});
 	
@@ -20207,7 +20231,7 @@
 	
 	
 	// module
-	exports.push([module.id, "@media all {\r\n  ._1wAqXJ8xd2pWeN6NE2GnrH {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    padding: 2px 24px 8px 24px;\r\n    font-family: 'Open Sans Condensed', sans-serif;\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-direction: column; /* Safari 6.1+ */\r\n    flex-direction: column;\r\n  }\r\n  ._3Bn57dxmEFDOdAj7jTB0Cs {\r\n    font-size: xx-large;\r\n    text-align: center;\r\n    font-weight: 300;\r\n    letter-spacing: 2vw;\r\n    text-transform: uppercase;\r\n    padding: 8px 0 16px 0;\r\n  }\r\n  ._3Bn57dxmEFDOdAj7jTB0Cs::first-letter {\r\n    color: rgba(230, 60, 65, 1);\r\n  }\r\n  hr {\r\n    border: 1px inset rgba(255, 255, 255, 1);\r\n    margin: 2px 0;\r\n  }\r\n  ._3xUg8RmVggeVcg5BBRS9Qb {\r\n    text-align: center;\r\n    letter-spacing: 2px;\r\n    font-size: small;\r\n  }\r\n  nav {\r\n    padding: 0 2px;\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, "@media all {\r\n  ._1wAqXJ8xd2pWeN6NE2GnrH {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    font-family: 'DroidSerif';\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-direction: column; /* Safari 6.1+ */\r\n    flex-direction: column;\r\n  }\r\n  ._3Bn57dxmEFDOdAj7jTB0Cs {\r\n    font-size: xx-large;\r\n    text-align: center;\r\n    font-weight: 300;\r\n    letter-spacing: 2vw;\r\n    text-transform: uppercase;\r\n    padding: 0;\r\n  }\r\n  ._3Bn57dxmEFDOdAj7jTB0Cs::first-letter {\r\n    color: rgba(230, 60, 65, 1);\r\n  }\r\n  hr {\r\n    border: 1px inset rgba(255, 255, 255, 1);\r\n    margin: 2px 0;\r\n  }\r\n  ._3xUg8RmVggeVcg5BBRS9Qb {\r\n    text-align: center;\r\n    letter-spacing: 2px;\r\n    font-size: small;\r\n  }\r\n  nav {\r\n    padding: 0 2px;\r\n  }\r\n}\r\n", ""]);
 	
 	// exports
 	exports.locals = {
@@ -31280,6 +31304,169 @@
 		"item": "_3MlJvH-zeFKEGY6F6iPQVv",
 		"name": "_2tyZM0Ye7SbzI6YhgHgtXn",
 		"progress": "_2iypn2cGvFRJXC7pwZpqdi"
+	};
+
+/***/ },
+/* 179 */
+/*!**************************************************!*\
+  !*** ./project/components/geometry.component.js ***!
+  \**************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _jquery = __webpack_require__(/*! jquery */ 164);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var GeometryComponent = _react2.default.createClass({
+	  displayName: 'GeometryComponent',
+	
+	  getInitialState: function getInitialState() {
+	    return {};
+	  },
+	
+	  componentDidMount: function componentDidMount() {},
+	
+	  render: function render() {
+	    var self = this;
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      'BODY'
+	    );
+	  }
+	});
+	
+	module.exports = GeometryComponent;
+
+/***/ },
+/* 180 */
+/*!*********************************************!*\
+  !*** ./project/components/nav.component.js ***!
+  \*********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _jquery = __webpack_require__(/*! jquery */ 164);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _navComponent = __webpack_require__(/*! ./nav.component.css */ 181);
+	
+	var _navComponent2 = _interopRequireDefault(_navComponent);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var NavComponent = _react2.default.createClass({
+	  displayName: 'NavComponent',
+	
+	  getInitialState: function getInitialState() {
+	    return {};
+	  },
+	
+	  componentDidMount: function componentDidMount() {},
+	
+	  render: function render() {
+	    var self = this;
+	    return _react2.default.createElement(
+	      'div',
+	      { className: _navComponent2.default.wrapper },
+	      _react2.default.createElement(
+	        'div',
+	        { className: _navComponent2.default.title },
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'MASONRY'
+	        ),
+	        _react2.default.createElement('div', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'the kiln'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: _navComponent2.default.item },
+	        'the kiln'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: _navComponent2.default.item },
+	        'how it works'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: _navComponent2.default.item },
+	        'contact us'
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = NavComponent;
+
+/***/ },
+/* 181 */
+/*!**********************************************!*\
+  !*** ./project/components/nav.component.css ***!
+  \**********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../~/css-loader!./nav.component.css */ 182);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 162)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./nav.component.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./nav.component.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 182 */
+/*!*************************************************************!*\
+  !*** ./~/css-loader!./project/components/nav.component.css ***!
+  \*************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 161)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "@media all {\r\n  ._3wMgJ_xvlU5McPl5aZSa-K {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    color: #ffffff;\r\n    background-color: #000000;\r\n  }\r\n  ._1-gHMdvo7rivdC2tEZhzLL {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n\r\n    font-family: 'PlayfairDisplay';\r\n  }\r\n  ._38JeuFBhmekggIArxhs3uX {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\r\n\r\n  ._38JeuFBhmekggIArxhs3uX:hover {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\r\n}\r\n", ""]);
+	
+	// exports
+	exports.locals = {
+		"wrapper": "_3wMgJ_xvlU5McPl5aZSa-K",
+		"title": "_1-gHMdvo7rivdC2tEZhzLL",
+		"item": "_38JeuFBhmekggIArxhs3uX"
 	};
 
 /***/ }

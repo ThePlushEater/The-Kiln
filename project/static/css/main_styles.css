@@ -1,0 +1,448 @@
+/*Fonts*/
+@font-face {
+    font-family: 'DroidSerif-Bold';
+    src: url('fonts/DroidSerif-Bold.ttf');
+}
+@font-face {
+    font-family: 'DroidSerif-BoldItalic';
+    src: url('fonts/DroidSerif-BoldItalic.ttf');
+}
+@font-face {
+    font-family: 'DroidSerif-Italic';
+    src: url('fonts/DroidSerif-Italic.ttf');
+}
+@font-face {
+    font-family: 'DroidSerif';
+    src: url('fonts/DroidSerif.ttf');
+}
+@font-face {
+    font-family: 'PlayfairDisplay-Black';
+    src: url('fonts/PlayfairDisplay-Black.ttf');
+}
+@font-face {
+    font-family: 'PlayfairDisplay-BlackItalic';
+    src: url('fonts/PlayfairDisplay-BlackItalic.ttf');
+}
+@font-face {
+    font-family: 'PlayfairDisplay-Bold';
+    src: url('fonts/PlayfairDisplay-Bold.ttf');
+}
+@font-face {
+    font-family: 'PlayfairDisplay-BoldItalic';
+    src: url('fonts/PlayfairDisplay-BoldItalic.ttf');
+}
+@font-face {
+    font-family: 'PlayfairDisplay-Italic';
+    src: url('fonts/PlayfairDisplay-Italic.ttf');
+}
+@font-face {
+    font-family: 'PlayfairDisplay-Regular';
+    src: url('fonts/PlayfairDisplay-Regular.ttf');
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.title-text {
+	font-family: 'PlayfairDisplay-Black';
+	color:#fff;
+	text-transform: uppercase;
+	font-size: 2.6em;
+	margin-right: 5%;
+	align-self: center;
+}
+
+.title-location {
+	font-family: 'DroidSerif';
+	color:#fff;
+	text-transform: lowercase;
+	font-size: 1.8em;
+	margin-right: 5%;
+	align-self: center;margin-top:3.5%;
+	white-space: nowrap;
+}
+.header-nav__link {
+    padding: 10px 20px 6px 20px;
+    color: #fff;
+    margin: 0 10% 0 10%;
+    font-size:1.1em;
+    text-transform: lowercase;
+    white-space: nowrap;
+}
+.active {
+    font-family: 'DroidSerif-Bold';
+    font-weight: bold;
+    border-style: solid;
+    border-color: white;
+}
+
+.header-nav__link:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+.dropdown {
+    -webkit-appearance: none;
+    -webkit-padding-end: 30px;
+    -webkit-user-select: none;
+    background-image: url(DropDownArrow.png);
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    border: 2px solid #F2F2F2;
+    border-radius: 0px;
+    background-color: #333333;
+    font-family: 'DroidSerif';
+    color: #F2F2F2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    padding:10px;
+    width: 90%;
+    margin: 5%;
+    font-size: 1em;
+}
+
+.input-box {
+    border: 2px solid #F2F2F2;
+    border-radius: 0px;
+    background-color: #333333;
+    font-family: 'DroidSerif';
+    color: #F2F2F2;
+    display: inline-block;
+    padding: 10px;
+    width: 90%;
+    margin: 3% 5% 0 5%;
+   	font-size: 1em;
+}
+
+.input-box-short {
+    border: 2px solid #F2F2F2;
+    border-radius: 0px;
+    background-color: #333333;
+    font-family: 'DroidSerif';
+    color: #F2F2F2;
+    display: inline-block;
+    padding: 10px;
+    width: 28%;
+    margin: 0 5% 0 5%;
+   	font-size: 1em;
+}
+
+.input-text {
+    font-family: 'DroidSerif';
+    color: #F2F2F2;
+    display: inline-block;
+    padding: 10px;
+    margin: 3% 5% 0 19%;
+   	font-size: 1em;
+}
+
+.size-container {
+	margin: 0 5% 0 50%;
+}
+
+.label-text {
+	margin: 5% 5% 5% 5%;
+	font-size: 1em;
+	color: #F2F2F2;
+}
+
+.btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: 'DroidSerif';
+  color: #000;
+  font-size: 1.2em;
+  padding: 30px 35px 30px 35px;
+  border: solid #000000 2px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #e89b00;
+  text-decoration: none;
+}
+
+html {
+	height:100%; 
+	overflow:hidden;
+}
+body {
+	height:100%; padding:0; margin:0; overflow-y:scroll;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	font-family: 'DroidSerif';
+}
+header {
+	background-color:#000000;
+	-webkit-flex: 0 0 15%;;
+	-moz-flex: 0 0 15%;;
+	-ms-flex: 0 0 15%;;
+	flex: 0 0 15%;
+}
+section {
+	background:#eee;
+	-webkit-flex: 1 0 auto;
+	-moz-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+	flex: 1 0 auto;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-moz-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+.content {
+	background:#F2F2F2;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	flex: 3;
+	order:2;
+}
+.sidebar1 {
+	background:#333333;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1
+	flex: 1;
+	order: 1;
+}
+.sidebar2 {
+	background:#ddd;
+	-webkit-flex: 0 0 200px;
+	-moz-flex: 0 0 200px;
+	-ms-flex: 0 0 200px;
+	flex: 1;
+	order:3;
+}
+footer {
+	-webkit-flex: 0 0 500px;
+	-moz-flex: 0 0 50px;
+	-ms-flex: 0 0 50px;
+	flex: 0 0 7%;;
+	padding: 5px;
+    background-color: #333333;
+}
+
+.Grid {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Grid-cell {
+  flex: 1;
+}
+
+.Grid--flexCells > .Grid-cell {
+  display: flex;
+}
+
+.Grid--top {
+  align-items: flex-start;
+}
+
+.Grid--bottom {
+  align-items: flex-end;
+}
+
+.Grid--center {
+  align-items: center;
+}
+
+.Grid--justifyCenter {
+  justify-content: center;
+}
+
+.Grid-cell--top {
+  align-self: flex-start;
+}
+
+.Grid-cell--bottom {
+  align-self: flex-end;
+}
+
+.Grid-cell--center {
+  align-self: center;
+}
+
+.Grid-cell--autoSize {
+  flex: none;
+}
+
+.Grid--fit > .Grid-cell {
+  flex: 1;
+}
+
+.Grid--full > .Grid-cell {
+  flex: 0 0 100%;
+}
+
+.Grid--1of2 > .Grid-cell {
+  flex: 0 0 50%;
+}
+
+.Grid--1of3 > .Grid-cell {
+  flex: 0 0 33.3333%;
+}
+
+.Grid--2of3 {
+  flex: 0 0 66.6666%;
+}
+
+.Grid--1of4 > .Grid-cell {
+  flex: 0 0 25%;
+}
+
+@media (--break-sm) {
+  .small-Grid--fit > .Grid-cell {
+    flex: 1;
+  }
+  .small-Grid--full > .Grid-cell {
+    flex: 0 0 100%;
+  }
+  .small-Grid--1of2 > .Grid-cell {
+    flex: 0 0 50%;
+  }
+  .small-Grid--1of3 > .Grid-cell {
+    flex: 0 0 33.3333%;
+  }
+  .small-Grid--1of4 > .Grid-cell {
+    flex: 0 0 25%;
+  }
+}
+
+@media (--break-md) {
+  .med-Grid--fit > .Grid-cell {
+    flex: 1;
+  }
+  .med-Grid--full > .Grid-cell {
+    flex: 0 0 100%;
+  }
+  .med-Grid--1of2 > .Grid-cell {
+    flex: 0 0 50%;
+  }
+  .med-Grid--1of3 > .Grid-cell {
+    flex: 0 0 33.3333%;
+  }
+  .med-Grid--1of4 > .Grid-cell {
+    flex: 0 0 25%;
+  }
+}
+
+@media (--break-lg) {
+  .large-Grid--fit > .Grid-cell {
+    flex: 1;
+  }
+  .large-Grid--full > .Grid-cell {
+    flex: 0 0 100%;
+  }
+  .large-Grid--1of2 > .Grid-cell {
+    flex: 0 0 50%;
+  }
+  .large-Grid--1of3 > .Grid-cell {
+    flex: 0 0 33.3333%;
+  }
+  .large-Grid--1of4 > .Grid-cell {
+    flex: 0 0 25%;
+  }
+}
+
+.Grid--gutters {
+  margin: -1em 0 1em -1em;
+}
+.Grid--gutters > .Grid-cell {
+  padding: 1em 0 0 1em;
+}
+
+.Grid--guttersLg {
+  margin: -1.5em 0 1.5em -1.5em;
+}
+.Grid--guttersLg > .Grid-cell {
+  padding: 1.5em 0 0 1.5em;
+}
+
+.Grid--guttersXl {
+  margin: -2em 0 2em -2em;
+}
+.Grid--guttersXl > .Grid-cell {
+  padding: 2em 0 0 2em;
+}
+
+@media (--break-sm) {
+  .small-Grid--gutters {
+    margin: -1em 0 1em -1em;
+  }
+  .small-Grid--gutters > .Grid-cell {
+    padding: 1em 0 0 1em;
+  }
+  .small-Grid--guttersLg {
+    margin: -1.5em 0 1.5em -1.5em;
+  }
+  .small-Grid--guttersLg > .Grid-cell {
+    padding: 1.5em 0 0 1.5em;
+  }
+  .small-Grid--guttersXl {
+    margin: -2em 0 2em -2em;
+  }
+  .small-Grid--guttersXl > .Grid-cell {
+    padding: 2em 0 0 2em;
+  }
+}
+
+@media (--break-md) {
+  .med-Grid--gutters {
+    margin: -1em 0 1em -1em;
+  }
+  .med-Grid--gutters > .Grid-cell {
+    padding: 1em 0 0 1em;
+  }
+  .med-Grid--guttersLg {
+    margin: -1.5em 0 1.5em -1.5em;
+  }
+  .med-Grid--guttersLg > .Grid-cell {
+    padding: 1.5em 0 0 1.5em;
+  }
+  .med-Grid--guttersXl {
+    margin: -2em 0 2em -2em;
+  }
+  .med-Grid--guttersXl > .Grid-cell {
+    padding: 2em 0 0 2em;
+  }
+}
+
+@media (--break-lg) {
+  .large-Grid--gutters {
+    margin: -1em 0 1em -1em;
+  }
+  .large-Grid--gutters > .Grid-cell {
+    padding: 1em 0 0 1em;
+  }
+  .large-Grid--guttersLg {
+    margin: -1.5em 0 1.5em -1.5em;
+  }
+  .large-Grid--guttersLg > .Grid-cell {
+    padding: 1.5em 0 0 1.5em;
+  }
+  .large-Grid--guttersXl {
+    margin: -2em 0 2em -2em;
+  }
+  .large-Grid--guttersXl > .Grid-cell {
+    padding: 2em 0 0 2em;
+  }
+}
