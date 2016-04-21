@@ -69,9 +69,13 @@
 	
 	var _geometryComponent2 = _interopRequireDefault(_geometryComponent);
 	
-	var _navComponent = __webpack_require__(/*! ./nav.component.js */ 180);
+	var _navComponent = __webpack_require__(/*! ./nav.component.js */ 182);
 	
 	var _navComponent2 = _interopRequireDefault(_navComponent);
+	
+	var _kilnComponent = __webpack_require__(/*! ./kiln.component.js */ 185);
+	
+	var _kilnComponent2 = _interopRequireDefault(_kilnComponent);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -84,13 +88,19 @@
 	
 	  componentDidMount: function componentDidMount() {},
 	
+	  routeToKiln: function routeToKiln() {
+	    this.setState({ page: 1 });
+	  },
+	
+	
 	  render: function render() {
+	    var self = this;
 	    if (this.state.page == 0) {
 	      return _react2.default.createElement(
 	        'div',
 	        { className: _appComponent2.default.wrapper },
 	        _react2.default.createElement(_navComponent2.default, null),
-	        _react2.default.createElement(_geometryComponent2.default, null),
+	        _react2.default.createElement(_geometryComponent2.default, { onClick: self.routeToKiln }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: _appComponent2.default.copyright },
@@ -102,7 +112,7 @@
 	        'div',
 	        { className: _appComponent2.default.wrapper },
 	        _react2.default.createElement(_navComponent2.default, null),
-	        _react2.default.createElement(_geometryComponent2.default, null),
+	        _react2.default.createElement(_kilnComponent2.default, null),
 	        _react2.default.createElement(
 	          'div',
 	          { className: _appComponent2.default.copyright },
@@ -31323,7 +31333,7 @@
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _geometryComponent = __webpack_require__(/*! ./geometry.component.css */ 183);
+	var _geometryComponent = __webpack_require__(/*! ./geometry.component.css */ 180);
 	
 	var _geometryComponent2 = _interopRequireDefault(_geometryComponent);
 	
@@ -31356,7 +31366,9 @@
 	        { className: _geometryComponent2.default.button },
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { onClick: function onClick() {
+	              self.props.onClick();
+	            } },
 	          'enter the kiln'
 	        )
 	      )
@@ -31368,6 +31380,56 @@
 
 /***/ },
 /* 180 */
+/*!***************************************************!*\
+  !*** ./project/components/geometry.component.css ***!
+  \***************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../~/css-loader!./geometry.component.css */ 181);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 162)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./geometry.component.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./geometry.component.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 181 */
+/*!******************************************************************!*\
+  !*** ./~/css-loader!./project/components/geometry.component.css ***!
+  \******************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 161)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "@media all {\r\n  ._1LJXqUV4utfl2wvjJR4bO {\r\n    width: 100%;\r\n    height: 85%;\r\n    color: rgba(0, 0, 0, 1);\r\n  }\r\n  ._2e8vwMR52LpPGhGDac3lq3 {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    height: 80%;\r\n    padding: 5%;\r\n  }\r\n\r\n  ._2e8vwMR52LpPGhGDac3lq3 div {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n    height: 100%;\r\n    margin: 24px;\r\n  }\r\n\r\n  ._2W5GqjOMJZifK4eBr6DRCQ {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    height: 20%;\r\n  }\r\n  ._2W5GqjOMJZifK4eBr6DRCQ div {\r\n    padding: 30px 35px 30px 35px;\r\n    border: solid rgba(0, 0, 0, 1) 2px;\r\n    margin: auto;\r\n  }\r\n}\r\n", ""]);
+	
+	// exports
+	exports.locals = {
+		"wrapper": "_1LJXqUV4utfl2wvjJR4bO",
+		"geolist": "_2e8vwMR52LpPGhGDac3lq3",
+		"button": "_2W5GqjOMJZifK4eBr6DRCQ"
+	};
+
+/***/ },
+/* 182 */
 /*!*********************************************!*\
   !*** ./project/components/nav.component.js ***!
   \*********************************************/
@@ -31383,7 +31445,7 @@
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _navComponent = __webpack_require__(/*! ./nav.component.css */ 181);
+	var _navComponent = __webpack_require__(/*! ./nav.component.css */ 183);
 	
 	var _navComponent2 = _interopRequireDefault(_navComponent);
 	
@@ -31407,30 +31469,30 @@
 	        'div',
 	        { className: _navComponent2.default.title },
 	        _react2.default.createElement(
-	          'h1',
-	          null,
+	          'div',
+	          { className: _navComponent2.default.titleText },
 	          'MASONRY'
 	        ),
 	        _react2.default.createElement('div', null),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: _navComponent2.default.titleLocation },
 	          'the kiln'
 	        )
 	      ),
 	      _react2.default.createElement(
 	        'div',
-	        { className: _navComponent2.default.item },
+	        { className: _navComponent2.default.navLink },
 	        'the kiln'
 	      ),
 	      _react2.default.createElement(
 	        'div',
-	        { className: _navComponent2.default.item },
+	        { className: _navComponent2.default.navLink },
 	        'how it works'
 	      ),
 	      _react2.default.createElement(
 	        'div',
-	        { className: _navComponent2.default.item },
+	        { className: _navComponent2.default.navLink },
 	        'contact us'
 	      )
 	    );
@@ -31440,7 +31502,7 @@
 	module.exports = NavComponent;
 
 /***/ },
-/* 181 */
+/* 183 */
 /*!**********************************************!*\
   !*** ./project/components/nav.component.css ***!
   \**********************************************/
@@ -31449,7 +31511,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../~/css-loader!./nav.component.css */ 182);
+	var content = __webpack_require__(/*! !./../../~/css-loader!./nav.component.css */ 184);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 162)(content, {});
@@ -31469,7 +31531,7 @@
 	}
 
 /***/ },
-/* 182 */
+/* 184 */
 /*!*************************************************************!*\
   !*** ./~/css-loader!./project/components/nav.component.css ***!
   \*************************************************************/
@@ -31480,7 +31542,7 @@
 	
 	
 	// module
-	exports.push([module.id, "@media all {\r\n  ._3wMgJ_xvlU5McPl5aZSa-K {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    color: #ffffff;\r\n    background-color: #000000;\r\n  }\r\n  ._1-gHMdvo7rivdC2tEZhzLL {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n\r\n    font-family: 'PlayfairDisplay';\r\n  }\r\n  ._2FR0mFsuSHc8D8sX6-mZRS {\r\n      font-family: 'PlayfairDisplay-Black';\r\n      color:#fff;\r\n      text-transform: uppercase;\r\n      font-size: 2.6em;\r\n      margin-right: 5%;\r\n      align-self: center;\r\n  }\r\n  ._312JitSTIEZl2sELd3s4Am {\r\n      padding: 10px 20px 6px 20px;\r\n      color: #fff;\r\n      margin: 0 10% 0 10%;\r\n      font-size:1.1em;\r\n      text-transform: lowercase;\r\n      white-space: nowrap;\r\n  }\r\n  .sHmeQTEq7SCRK9TUcKXyh {\r\n      font-family: 'DroidSerif';\r\n      color:#fff;\r\n      text-transform: lowercase;\r\n      font-size: 1.8em;\r\n      margin-right: 5%;\r\n      align-self: center;margin-top:3.5%;\r\n      white-space: nowrap;\r\n  }\r\n  ._1_FvoR51psbKEW7X8bILKl {\r\n      font-family: 'DroidSerif-Bold';\r\n      font-weight: bold;\r\n      border-style: solid;\r\n      border-color: white;\r\n  }\r\n  .sHmeQTEq7SCRK9TUcKXyh:hover {\r\n      color: #000;\r\n      background-color: #fff;\r\n  }\r\n  ._1WYwB-TguTCyDYdFz_ZmsL {\r\n    background-color:#000000;\r\n    -webkit-flex: 0 0 15%;;\r\n    -moz-flex: 0 0 15%;;\r\n    -ms-flex: 0 0 15%;;\r\n    flex: 0 0 15%;\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, "@media all {\r\n  ._3wMgJ_xvlU5McPl5aZSa-K {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    color: #ffffff;\r\n    background-color: #000000;\r\n    height: 15%;\r\n    padding: 8px;\r\n  }\r\n  ._1-gHMdvo7rivdC2tEZhzLL {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n\r\n    font-family: 'PlayfairDisplay';\r\n  }\r\n  ._2FR0mFsuSHc8D8sX6-mZRS {\r\n    font-family: 'PlayfairDisplay-Black';\r\n    color:#fff;\r\n    text-transform: uppercase;\r\n    font-size: 2.6em;\r\n    margin-right: 5%;\r\n    align-self: center;\r\n  }\r\n  ._312JitSTIEZl2sELd3s4Am {\r\n    font-family: 'DroidSerif';\r\n    color:#fff;\r\n    text-transform: lowercase;\r\n    font-size: 1.8em;\r\n    margin-right: 5%;\r\n    align-self: center;\r\n    white-space: nowrap;\r\n  }\r\n  .sHmeQTEq7SCRK9TUcKXyh {\r\n    padding: 10px 20px 6px 20px;\r\n    color: #fff;\r\n    margin: 0 10% 0 10%;\r\n    font-size:1.1em;\r\n    text-transform: lowercase;\r\n    white-space: nowrap;\r\n    margin: auto;\r\n  }\r\n  ._1_FvoR51psbKEW7X8bILKl {\r\n      font-family: 'DroidSerif-Bold';\r\n      font-weight: bold;\r\n      border-style: solid;\r\n      border-color: white;\r\n  }\r\n  .sHmeQTEq7SCRK9TUcKXyh:hover {\r\n      color: #000;\r\n      background-color: #fff;\r\n  }\r\n  ._1WYwB-TguTCyDYdFz_ZmsL {\r\n    background-color:#000000;\r\n    -webkit-flex: 0 0 15%;;\r\n    -moz-flex: 0 0 15%;;\r\n    -ms-flex: 0 0 15%;;\r\n    flex: 0 0 15%;\r\n  }\r\n}\r\n", ""]);
 	
 	// exports
 	exports.locals = {
@@ -31494,16 +31556,61 @@
 	};
 
 /***/ },
-/* 183 */
-/*!***************************************************!*\
-  !*** ./project/components/geometry.component.css ***!
-  \***************************************************/
+/* 185 */
+/*!**********************************************!*\
+  !*** ./project/components/kiln.component.js ***!
+  \**********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _jquery = __webpack_require__(/*! jquery */ 164);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _kilnComponent = __webpack_require__(/*! ./kiln.component.css */ 186);
+	
+	var _kilnComponent2 = _interopRequireDefault(_kilnComponent);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var KilnComponent = _react2.default.createClass({
+	  displayName: 'KilnComponent',
+	
+	  getInitialState: function getInitialState() {
+	    return {};
+	  },
+	
+	  componentDidMount: function componentDidMount() {},
+	
+	  render: function render() {
+	    var self = this;
+	    var time = new Date().getTime();
+	    return _react2.default.createElement(
+	      'div',
+	      { className: _kilnComponent2.default.wrapper },
+	      'KILN'
+	    );
+	  }
+	});
+	
+	module.exports = KilnComponent;
+
+/***/ },
+/* 186 */
+/*!***********************************************!*\
+  !*** ./project/components/kiln.component.css ***!
+  \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../~/css-loader!./geometry.component.css */ 184);
+	var content = __webpack_require__(/*! !./../../~/css-loader!./kiln.component.css */ 187);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 162)(content, {});
@@ -31512,8 +31619,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./geometry.component.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./geometry.component.css");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./kiln.component.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./kiln.component.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -31523,10 +31630,10 @@
 	}
 
 /***/ },
-/* 184 */
-/*!******************************************************************!*\
-  !*** ./~/css-loader!./project/components/geometry.component.css ***!
-  \******************************************************************/
+/* 187 */
+/*!**************************************************************!*\
+  !*** ./~/css-loader!./project/components/kiln.component.css ***!
+  \**************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 161)();
@@ -31534,13 +31641,11 @@
 	
 	
 	// module
-	exports.push([module.id, "@media all {\r\n  ._1LJXqUV4utfl2wvjJR4bO {\r\n    width: 100%;\r\n    height: 85%;\r\n    color: rgba(0, 0, 0, 1);\r\n  }\r\n  ._2e8vwMR52LpPGhGDac3lq3 {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    height: 80%;\r\n    padding: 5%;\r\n  }\r\n\r\n  ._2e8vwMR52LpPGhGDac3lq3 div {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n    height: 100%;\r\n    margin: 24px;\r\n  }\r\n\r\n  ._2W5GqjOMJZifK4eBr6DRCQ {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    height: 20%;\r\n  }\r\n  ._2W5GqjOMJZifK4eBr6DRCQ div {\r\n    padding: 30px 35px 30px 35px;\r\n    border: solid rgba(0, 0, 0, 1) 2px;\r\n    margin: auto;\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, "@media all {\r\n  ._16iZkkHDCnIY6QMs34azJ {\r\n    width: 100%;\r\n    height: 85%;\r\n    color: rgba(0, 0, 0, 1);\r\n  }\r\n}\r\n", ""]);
 	
 	// exports
 	exports.locals = {
-		"wrapper": "_1LJXqUV4utfl2wvjJR4bO",
-		"geolist": "_2e8vwMR52LpPGhGDac3lq3",
-		"button": "_2W5GqjOMJZifK4eBr6DRCQ"
+		"wrapper": "_16iZkkHDCnIY6QMs34azJ"
 	};
 
 /***/ }

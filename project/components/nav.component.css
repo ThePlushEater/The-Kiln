@@ -7,6 +7,8 @@
     display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
     color: #ffffff;
     background-color: #000000;
+    height: 15%;
+    padding: 8px;
   }
   :local(.title) {
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
@@ -20,29 +22,30 @@
     font-family: 'PlayfairDisplay';
   }
   :local(.titleText) {
-      font-family: 'PlayfairDisplay-Black';
-      color:#fff;
-      text-transform: uppercase;
-      font-size: 2.6em;
-      margin-right: 5%;
-      align-self: center;
+    font-family: 'PlayfairDisplay-Black';
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 2.6em;
+    margin-right: 5%;
+    align-self: center;
   }
   :local(.titleLocation) {
-      padding: 10px 20px 6px 20px;
-      color: #fff;
-      margin: 0 10% 0 10%;
-      font-size:1.1em;
-      text-transform: lowercase;
-      white-space: nowrap;
+    font-family: 'DroidSerif';
+    color:#fff;
+    text-transform: lowercase;
+    font-size: 1.8em;
+    margin-right: 5%;
+    align-self: center;
+    white-space: nowrap;
   }
   :local(.navLink) {
-      font-family: 'DroidSerif';
-      color:#fff;
-      text-transform: lowercase;
-      font-size: 1.8em;
-      margin-right: 5%;
-      align-self: center;margin-top:3.5%;
-      white-space: nowrap;
+    padding: 10px 20px 6px 20px;
+    color: #fff;
+    margin: 0 10% 0 10%;
+    font-size:1.1em;
+    text-transform: lowercase;
+    white-space: nowrap;
+    margin: auto;
   }
   :local(.activeNav) {
       font-family: 'DroidSerif-Bold';

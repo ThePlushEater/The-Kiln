@@ -26,7 +26,7 @@ var GeometryComponent = React.createClass({
           </div>
         </div>
         <div className={styles.button}>
-          <div>
+          <div onClick={()=> {self.props.onClick();}}>
             enter the kiln
           </div>
         </div>

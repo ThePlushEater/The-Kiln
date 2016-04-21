@@ -17,24 +17,24 @@ var NavComponent = React.createClass({
     return (
       <div className={styles.wrapper}>
         <div className={styles.title}>
-          <h1>
+          <div className={styles.titleText}>
             MASONRY
-          </h1>
-          <div>
           </div>
           <div>
+          </div>
+          <div className={styles.titleLocation}>
             the kiln
           </div>
         </div>
 
 
-        <div className={styles.item}>
+        <div className={styles.navLink}>
           the kiln
         </div>
-        <div className={styles.item}>
+        <div className={styles.navLink}>
           how it works
         </div>
-        <div className={styles.item}>
+        <div className={styles.navLink}>
           contact us
         </div>
       </div>
