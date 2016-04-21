@@ -31480,13 +31480,17 @@
 	
 	
 	// module
-	exports.push([module.id, "@media all {\r\n  ._3wMgJ_xvlU5McPl5aZSa-K {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    color: #ffffff;\r\n    background-color: #000000;\r\n  }\r\n  ._1-gHMdvo7rivdC2tEZhzLL {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n\r\n    font-family: 'PlayfairDisplay';\r\n  }\r\n  ._38JeuFBhmekggIArxhs3uX {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\n\n  ._38JeuFBhmekggIArxhs3uX:hover {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, "@media all {\r\n  ._3wMgJ_xvlU5McPl5aZSa-K {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    color: #ffffff;\r\n    background-color: #000000;\r\n  }\r\n  ._1-gHMdvo7rivdC2tEZhzLL {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n\r\n    font-family: 'PlayfairDisplay';\r\n  }\r\n  ._2FR0mFsuSHc8D8sX6-mZRS {\r\n      font-family: 'PlayfairDisplay-Black';\r\n      color:#fff;\r\n      text-transform: uppercase;\r\n      font-size: 2.6em;\r\n      margin-right: 5%;\r\n      align-self: center;\r\n  }\r\n  ._312JitSTIEZl2sELd3s4Am {\r\n      padding: 10px 20px 6px 20px;\r\n      color: #fff;\r\n      margin: 0 10% 0 10%;\r\n      font-size:1.1em;\r\n      text-transform: lowercase;\r\n      white-space: nowrap;\r\n  }\r\n  .sHmeQTEq7SCRK9TUcKXyh {\r\n      font-family: 'DroidSerif';\r\n      color:#fff;\r\n      text-transform: lowercase;\r\n      font-size: 1.8em;\r\n      margin-right: 5%;\r\n      align-self: center;margin-top:3.5%;\r\n      white-space: nowrap;\r\n  }\r\n  ._1_FvoR51psbKEW7X8bILKl {\r\n      font-family: 'DroidSerif-Bold';\r\n      font-weight: bold;\r\n      border-style: solid;\r\n      border-color: white;\r\n  }\r\n  .sHmeQTEq7SCRK9TUcKXyh:hover {\r\n      color: #000;\r\n      background-color: #fff;\r\n  }\r\n  ._1WYwB-TguTCyDYdFz_ZmsL {\r\n    background-color:#000000;\r\n    -webkit-flex: 0 0 15%;;\r\n    -moz-flex: 0 0 15%;;\r\n    -ms-flex: 0 0 15%;;\r\n    flex: 0 0 15%;\r\n  }\r\n}\r\n", ""]);
 	
 	// exports
 	exports.locals = {
 		"wrapper": "_3wMgJ_xvlU5McPl5aZSa-K",
 		"title": "_1-gHMdvo7rivdC2tEZhzLL",
-		"item": "_38JeuFBhmekggIArxhs3uX"
+		"titleText": "_2FR0mFsuSHc8D8sX6-mZRS",
+		"titleLocation": "_312JitSTIEZl2sELd3s4Am",
+		"navLink": "sHmeQTEq7SCRK9TUcKXyh",
+		"activeNav": "_1_FvoR51psbKEW7X8bILKl",
+		"headerSize": "_1WYwB-TguTCyDYdFz_ZmsL"
 	};
 
 /***/ },
