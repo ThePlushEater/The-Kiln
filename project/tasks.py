@@ -4,7 +4,7 @@ Tasks = [
         'uri': '',
         'name': 'Task 1',
         'description': 'Task 1 Description',
-        'features': [1, 3],
+        'features': [],
         'progress': 20,
         'status': 'idle',
         'result': ''
@@ -14,7 +14,7 @@ Tasks = [
         'uri': '',
         'name': 'Task 2',
         'description': 'Task 2 Description',
-        'features': [2],
+        'features': [],
         'progress': 10,
         'status': 'idle',
         'result': ''

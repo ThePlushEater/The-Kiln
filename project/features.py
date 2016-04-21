@@ -1,17 +1,27 @@
 Features = [
     {
         'id': 1,
-        'name': 'Feature 1',
-        'description': 'Feature 1 Description'
+        'name': 'Generic',
+        'description': '(Brick Generic Type)'
     },
     {
         'id': 2,
-        'name': 'Feature 2',
-        'description': 'Feature 2 Description'
+        'name': 'Color',
+        'description': '(HSV Color Channel)'
     },
     {
         'id': 3,
-        'name': 'Feature 3',
-        'description': 'Feature 3 Description'
+        'name': 'Speckles',
+        'description': '(Speckles)'
+    },
+    {
+        'id': 4,
+        'name': 'Dragging Marks',
+        'description': '(Dragging Marks)'
+    },
+    {
+        'id': 5,
+        'name': 'Cracks',
+        'description': '(Cracks)'
     }
 ]

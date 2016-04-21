@@ -12,8 +12,9 @@ var OptionsComponent = React.createClass({
   onChange: function(option, event) {
     option.value = event.target.value;
     this.setState({options: this.state.options});
+    console.log(option);
     $.ajax({
-      url: option.uri,
+      url: '/option/' + option.id,
       type: 'PUT',
       contentType: 'application/json',
       data: JSON.stringify(option),

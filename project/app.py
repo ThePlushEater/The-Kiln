@@ -9,7 +9,7 @@ import subprocess
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config.update(
     threaded=True,
-    DEBUG=False,
+    DEBUG=True,
     SECRET_KEY='qwk4l32jtgnk;l12q3j42;1lrnjt245^&%*^#%$WERG'
 )
 
@@ -54,12 +54,12 @@ def create_task(task_id):
     features = request.json.get('features', task[0]['features'])
     new_options = []
     for selected in features:
-        for feature in Features:
-            if selected == feature['id']:
-                new_options.append(feature)
+        for option in Options:
+            if selected == option['fid']:
+                new_options.append(option)
     task[0]['status'] = 'done' # Todo: We need to create sub thread to run rendering..
-    app.logger.warning(jsonify({'new_options': new_options}))
-    render(str(task[0]['id']));
+    #app.logger.warning(new_options)
+    render(str(task[0]['id']), new_options);
     filename = 'render/' + str(task[0]['id']) + '_1.PNG'
     task[0]['result'] = url_for('static', filename=filename)
     return jsonify({'task': task[0]})
@@ -172,12 +172,32 @@ def update_option(option_id):
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
-def render(filename):
-    #app.logger.warning(filename)
+def render(filename, options):
+    app.logger.warning(options)
+    generic = 1
+    hue = 0
+    saturation = 95
+    value = 25
+    for option in options:
+        if option['id'] == 1:
+            generic = option['value']
+        if option['id'] == 2:
+            hue = option['value']
+        if option['id'] == 3:
+            saturation = option['value']
+        if option['id'] == 4:
+            value = option['value']
+
+    app.logger.warning(generic)
     blender = 'C:/Program Files/Blender Foundation/Blender/blender.exe'
-    blend = url_for('static', filename='blender/brick3_1.blend')
+    blend = url_for('static', filename='blender/masonry1.blend')
+
     #file = '-b project/static/blender/brick3.blend -P project/progress.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 '
-    file = '-b project/static/blender/brick3_1.blend -o //../render/' + filename + '_#.PNG -x 1 -f 1 '
+    file = '-b project/static/blender/masonry1.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue + ' -hsv_s ' + saturation + ' -hsv_v ' + value
+    if generic == 2:
+        file = '-b project/static/blender/masonry2.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue
+    elif generic == 3:
+        file = '-b project/static/blender/masonry3.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue
     command = ' '.join([blender, file])
     ans = subprocess.call(command, stderr=subprocess.STDOUT)
 

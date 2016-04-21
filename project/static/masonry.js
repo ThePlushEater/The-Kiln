@@ -20607,7 +20607,6 @@
 	  selectTask: function selectTask(task) {
 	    var self = this;
 	    if (task) {
-	      console.log(task.uri);
 	      _jquery2.default.ajax({
 	        url: "/tasks/" + task.id,
 	        dataType: 'json',
@@ -30626,7 +30625,7 @@
 	      self.state.task.features.push(feature.id);
 	    }
 	    _jquery2.default.ajax({
-	      url: self.state.task.uri,
+	      url: '/tasks/' + self.state.task.id,
 	      type: 'PUT',
 	      contentType: 'application/json',
 	      data: JSON.stringify(self.state.task),
@@ -30661,6 +30660,7 @@
 	  render: function render() {
 	    var self = this;
 	    if (this.state.task) {
+	      var time = new Date().getTime();
 	      var progress = {
 	        width: this.state.task.progress + '%'
 	      };
@@ -30717,7 +30717,7 @@
 	              { className: _taskComponent2.default.thumbnail_title },
 	              'Preview'
 	            ),
-	            _react2.default.createElement('img', { className: _taskComponent2.default.thumbnail_image, src: self.state.task.result })
+	            _react2.default.createElement('img', { className: _taskComponent2.default.thumbnail_image, src: self.state.task.result + "?ver=" + time })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -30979,8 +30979,9 @@
 	  onChange: function onChange(option, event) {
 	    option.value = event.target.value;
 	    this.setState({ options: this.state.options });
+	    console.log(option);
 	    _jquery2.default.ajax({
-	      url: option.uri,
+	      url: '/option/' + option.id,
 	      type: 'PUT',
 	      contentType: 'application/json',
 	      data: JSON.stringify(option),

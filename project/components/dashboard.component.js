@@ -49,7 +49,6 @@ var DashboardComponent = React.createClass({
   selectTask(task) {
     let self = this;
     if (task) {
-      console.log(task.uri);
       $.ajax({
         url: "/tasks/" + task.id,
         dataType: 'json',

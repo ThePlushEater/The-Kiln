@@ -57,13 +57,13 @@ var TaskComponent = React.createClass({
   selectFeature(feature) {
     let self = this;
     let index = self.state.task.features.indexOf(feature.id);
-    if(index > -1) {
+    if (index > -1) {
       self.state.task.features.splice(index, 1);
     } else {
       self.state.task.features.push(feature.id);
     }
     $.ajax({
-      url: self.state.task.uri,
+      url: '/tasks/' + self.state.task.id,
       type: 'PUT',
       contentType: 'application/json',
       data: JSON.stringify(self.state.task),
@@ -99,6 +99,7 @@ var TaskComponent = React.createClass({
   render: function() {
     let self = this;
     if (this.state.task) {
+      var time = new Date().getTime();
       var progress = {
         width: this.state.task.progress + '%'
       };
@@ -120,7 +121,7 @@ var TaskComponent = React.createClass({
           <div className={styles.wrapper_content}>
             <div className={styles.thumbnail}>
               <div className={styles.thumbnail_title}>Preview</div>
-              <img className={styles.thumbnail_image} src={self.state.task.result}/>
+              <img className={styles.thumbnail_image} src={self.state.task.result + "?ver=" + time}/>
             </div>
             <div className={styles.feature}>
               <div className={styles.feature_title}>Choose Features</div>
