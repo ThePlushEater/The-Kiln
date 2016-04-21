@@ -19,13 +19,46 @@
 
     font-family: 'PlayfairDisplay';
   }
-  :local(.item) {
-    -webkit-flex-grow: 1;
-    flex-grow: 1;
+  :local(.titleText) {
+      font-family: 'PlayfairDisplay-Black';
+      color:#fff;
+      text-transform: uppercase;
+      font-size: 2.6em;
+      margin-right: 5%;
+      align-self: center;
   }
-
-  :local(.item:hover) {
-    -webkit-flex-grow: 1;
-    flex-grow: 1;
+  :local(.titleLocation) {
+      padding: 10px 20px 6px 20px;
+      color: #fff;
+      margin: 0 10% 0 10%;
+      font-size:1.1em;
+      text-transform: lowercase;
+      white-space: nowrap;
+  }
+  :local(.navLink) {
+      font-family: 'DroidSerif';
+      color:#fff;
+      text-transform: lowercase;
+      font-size: 1.8em;
+      margin-right: 5%;
+      align-self: center;margin-top:3.5%;
+      white-space: nowrap;
+  }
+  :local(.activeNav) {
+      font-family: 'DroidSerif-Bold';
+      font-weight: bold;
+      border-style: solid;
+      border-color: white;
+  }
+  :local(.navLink:hover) {
+      color: #000;
+      background-color: #fff;
+  }
+  :local(.headerSize) {
+    background-color:#000000;
+    -webkit-flex: 0 0 15%;;
+    -moz-flex: 0 0 15%;;
+    -ms-flex: 0 0 15%;;
+    flex: 0 0 15%;
   }
 }
