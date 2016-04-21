@@ -31323,6 +31323,10 @@
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
+	var _geometryComponent = __webpack_require__(/*! ./geometry.component.css */ 183);
+	
+	var _geometryComponent2 = _interopRequireDefault(_geometryComponent);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var GeometryComponent = _react2.default.createClass({
@@ -31336,10 +31340,26 @@
 	
 	  render: function render() {
 	    var self = this;
+	    var time = new Date().getTime();
 	    return _react2.default.createElement(
 	      'div',
-	      null,
-	      'BODY'
+	      { className: _geometryComponent2.default.wrapper },
+	      _react2.default.createElement(
+	        'div',
+	        { className: _geometryComponent2.default.geolist },
+	        _react2.default.createElement('div', { className: _geometryComponent2.default.generic1 }),
+	        _react2.default.createElement('div', { className: _geometryComponent2.default.generic2 }),
+	        _react2.default.createElement('div', { className: _geometryComponent2.default.generic3 })
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: _geometryComponent2.default.button },
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'enter the kiln'
+	        )
+	      )
 	    );
 	  }
 	});
@@ -31387,7 +31407,7 @@
 	        'div',
 	        { className: _navComponent2.default.title },
 	        _react2.default.createElement(
-	          'div',
+	          'h1',
 	          null,
 	          'MASONRY'
 	        ),
@@ -31460,13 +31480,63 @@
 	
 	
 	// module
-	exports.push([module.id, "@media all {\r\n  ._3wMgJ_xvlU5McPl5aZSa-K {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    color: #ffffff;\r\n    background-color: #000000;\r\n  }\r\n  ._1-gHMdvo7rivdC2tEZhzLL {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n\r\n    font-family: 'PlayfairDisplay';\r\n  }\r\n  ._38JeuFBhmekggIArxhs3uX {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\r\n\r\n  ._38JeuFBhmekggIArxhs3uX:hover {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, "@media all {\r\n  ._3wMgJ_xvlU5McPl5aZSa-K {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    color: #ffffff;\r\n    background-color: #000000;\r\n  }\r\n  ._1-gHMdvo7rivdC2tEZhzLL {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n\r\n    font-family: 'PlayfairDisplay';\r\n  }\r\n\r\n  ._1-gHMdvo7rivdC2tEZhzLL h1 {\r\n    font-size: 300%;\r\n  }\r\n  ._38JeuFBhmekggIArxhs3uX {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\r\n\r\n  ._38JeuFBhmekggIArxhs3uX:hover {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\r\n}\r\n", ""]);
 	
 	// exports
 	exports.locals = {
 		"wrapper": "_3wMgJ_xvlU5McPl5aZSa-K",
 		"title": "_1-gHMdvo7rivdC2tEZhzLL",
 		"item": "_38JeuFBhmekggIArxhs3uX"
+	};
+
+/***/ },
+/* 183 */
+/*!***************************************************!*\
+  !*** ./project/components/geometry.component.css ***!
+  \***************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../~/css-loader!./geometry.component.css */ 184);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 162)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./geometry.component.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./geometry.component.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 184 */
+/*!******************************************************************!*\
+  !*** ./~/css-loader!./project/components/geometry.component.css ***!
+  \******************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 161)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "@media all {\r\n  ._1LJXqUV4utfl2wvjJR4bO {\r\n    width: 100%;\r\n    height: 85%;\r\n    color: rgba(0, 0, 0, 1);\r\n  }\r\n  ._2e8vwMR52LpPGhGDac3lq3 {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    height: 80%;\r\n    padding: 5%;\r\n  }\r\n\r\n  ._2e8vwMR52LpPGhGDac3lq3 div {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n    height: 100%;\r\n    margin: 24px;\r\n  }\r\n\r\n  ._2W5GqjOMJZifK4eBr6DRCQ {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    height: 20%;\r\n  }\r\n  ._2W5GqjOMJZifK4eBr6DRCQ div {\r\n    padding: 30px 35px 30px 35px;\r\n    border: solid rgba(0, 0, 0, 1) 2px;\r\n    margin: auto;\r\n  }\r\n}\r\n", ""]);
+	
+	// exports
+	exports.locals = {
+		"wrapper": "_1LJXqUV4utfl2wvjJR4bO",
+		"geolist": "_2e8vwMR52LpPGhGDac3lq3",
+		"button": "_2W5GqjOMJZifK4eBr6DRCQ"
 	};
 
 /***/ }

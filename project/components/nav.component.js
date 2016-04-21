@@ -17,9 +17,9 @@ var NavComponent = React.createClass({
     return (
       <div className={styles.wrapper}>
         <div className={styles.title}>
-          <div>
+          <h1>
             MASONRY
-          </div>
+          </h1>
           <div>
           </div>
           <div>

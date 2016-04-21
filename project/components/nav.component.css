@@ -19,6 +19,10 @@
 
     font-family: 'PlayfairDisplay';
   }
+
+  :local(.title h1) {
+    font-size: 300%;
+  }
   :local(.item) {
     -webkit-flex-grow: 1;
     flex-grow: 1;
