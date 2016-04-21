@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Masonry | the kiln</title>
+  <meta name="description" content="Build your customized brick.">
+  <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css"/>
+
+  <link rel="stylesheet" href="jquery-ui/jquery-ui.css"></link>
+  <script type="text/javascript" src="js/jQuery.js"></script>
+  <script type="text/javascript" src="js/colorpicker.js"></script>
+
+  <link rel="stylesheet" href="css/dist/common.css">
+  <link rel="stylesheet" href="css/main_styles.css">
+  <script src="jquery-ui/external/jquery/jquery.js"></script>
+  <script src="jquery-ui/jquery-ui.js"></script>
+  <script>
+    $(function() {
+      $( "#slider" ).slider({
+        value:10,
+        min: 0,
+        max: 20,
+        step: 1,
+        slide: function( event, ui ) {
+          $( "#base-var-amount" ).val( ui.value );
+        }
+      });
+      $( "#base-var-amount" ).val( $( "#slider" ).slider( "value" ) );
+    });
+  </script>
+  <script>
+    $(function() {
+      $( "#slider2" ).slider({
+        value:10,
+        min: 0,
+        max: 20,
+        step: 1,
+        slide: function( event, ui ) {
+          $( "#text-var-amount" ).val( ui.value );
+        }
+      });
+      $( "#text-var-amount" ).val( $( "#slider2" ).slider( "value" ) );
+    });
+  </script>
+  <script>
+    $(function() {
+      $('#colorSelector').ColorPicker({
+        color: '#0000ff',
+        onShow: function (colpkr) {
+          $(colpkr).fadeIn(500);
+          return false;
+        },
+        onHide: function (colpkr) {
+          $(colpkr).fadeOut(500);
+          return false;
+        },
+        onChange: function (hsb, hex, rgb) {
+          $('#colorSelector div').css('backgroundColor', '#' + hex);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+<header>
+  <div class="Grid Grid--gutters Grid--bottom">
+    <div class="Grid-cell">
+      <div class="Grid Grid--gutters Grid--center" style="align-items: center; flex:2;">
+        <div class="Grid-cell title-text">Masonry</div>
+        <hr width="1" size="70" style="color:white; margin-top:40px;">
+        <div class="Grid-cell title-location" style="">the kiln</div>
+      </div>
+    </div>
+    <div class="Grid-cell Grid--gutters Grid--center" style="flex:3;">
+      <div class="Grid Grid--gutters Grid-cell--center">
+        <div style="display: flex; justify-content: space-between;">
+          <a class="header-nav__link">about</a>
+          <a class="header-nav__link">inspiration</a>
+          <a class="header-nav__link active">the kiln</a>
+          <a class="header-nav__link">how it works</a>
+          <a class="header-nav__link">contact us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </header>
+  <section>
+    <div class="content">
+      <input type="text" id="brick-name" readonly style="border:0; color:#000; background-color:#F2F2F2; font-weight:bold; margin: 2%; font-size: 1.5em;font-family:'PlayfairDisplay-Bold;">
+      <div class="Grid--bottom " style="flex: 0 0 20%;">
+      <a class="btn Grid-cell--bottom " href="">fire me up</a>
+      </div>
+    </div>
+    <div class="sidebar1">
+      <input class = "input-box" id ="brick-name" type="text" name="brick name" placeholder="Name your brick">
+      <select class = "dropdown" id = "preset-brick">
+        <option>Choose from an existing brick</option>
+        <option>Standard Red Brick</option>
+        <option>Standard Green Brick</option>
+        <option>The Mason Special</option>
+      </select>
+      <div class="Grid-cell Grid--center">
+      <div class="Grid Grid-cell--center">
+        <div style="display: flex;justify-content: space-between;">
+          <input class="input-box-short" id ="brick-width" type="text" name="brick width" placeholder="Width (cm)">
+          <input class="input-box-short" id ="brick-heigth" type="text" name="brick height" placeholder="Height (cm)">
+          <input class="input-box-short" id ="brick-length" type="text" name="brick length" placeholder="Length (cm)">
+        </div>
+      </div>
+      <div id="colorSelector"><div style="background-color: #0000ff"></div></div>
+      <div style ="margin-top:5%;">
+      <label class="label-text" for="base-var-amount">Base Color Variation:</label>
+      <input type="text" id="base-var-amount" readonly style="border:0; color:#F2F2F2; background-color:#333333; font-weight:bold; margin-left: -10px; font-size: 1em;font-family:'DroidSerif-Bold';">
+      <div id="slider" style="width:90%;margin: 0 5%;"></div><p>
+      </div>
+      <select class = "dropdown" id = "brick-texture1">
+        <option>Choose a texture</option>
+        <option>Speckles</option>
+        <option>Drag Marks</option>
+        <option>Cracks</option>
+        <option>Shadows</option>
+      </select>
+      <div style ="margin-top:5%;">
+      <label class="label-text" for="text-var-amount">Texture Color Variation:</label>
+      <input type="text" id="text-var-amount" readonly style="border:0; color:#F2F2F2; background-color:#333333; font-weight:bold; margin-left: -10px; font-size: 1em;font-family:'DroidSerif-Bold';">
+      <div id="slider2" style="width:90%;margin: 0 5%;"></div><p>
+      </div>
+      <a class="label-text" for="text-var-amount">+add another texture</a>
+    </div>
+  </div>
+  </section>
+</body>
+</html>
