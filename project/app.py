@@ -43,26 +43,15 @@ def get_task(task_id):
         abort(404)
     return jsonify({'task': task[0]})
 
+
 @app.route('/task/<int:task_id>', methods=['PUT'])
 def create_task(task_id):
-    task = [task for task in Tasks if task['id'] == task_id]
-    app.logger.warning(task)
-    if len(task) == 0:
-        abort(404)
     if not request.json:
         abort(400)
-    features = request.json.get('features', task[0]['features'])
-    new_options = []
-    for selected in features:
-        for option in Options:
-            if selected == option['fid']:
-                new_options.append(option)
-    task[0]['status'] = 'done' # Todo: We need to create sub thread to run rendering..
-    #app.logger.warning(new_options)
-    render(str(task[0]['id']), new_options);
-    filename = 'render/' + str(task[0]['id']) + '_1.PNG'
-    task[0]['result'] = url_for('static', filename=filename)
-    return jsonify({'task': task[0]})
+    render2(request);
+    filename = 'static/render/' + str(request.json['name']) + '_1.PNG'
+    #task[0]['result'] = url_for('static', filename=filename)
+    return jsonify({'filename': filename})
 
 @app.route('/tasks/<int:task_id>', methods=['PUT'])
 def update_task(task_id):
@@ -201,9 +190,29 @@ def render(filename, options):
     command = ' '.join([blender, file])
     ans = subprocess.call(command, stderr=subprocess.STDOUT)
 
+def render2(request):
+    generic = 1
+    filename = request.json['name']
+    hue = str(request.json['hval'])
+    saturation = str(request.json['sval'])
+    value = str(request.json['bval'])
+
+    #app.logger.warning(generic)
+    blender = 'C:/Program Files/Blender Foundation/Blender/blender.exe'
+    blend = url_for('static', filename='blender/masonry1.blend')
+
+    #file = '-b project/static/blender/brick3.blend -P project/progress.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 '
+    file = '-b project/static/blender/masonry1.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue + ' -hsv_s ' + saturation + ' -hsv_v ' + value
+    if generic == 2:
+        file = '-b project/static/blender/masonry2.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue
+    elif generic == 3:
+        file = '-b project/static/blender/masonry3.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue
+    command = ' '.join([blender, file])
+    ans = subprocess.call(command, stderr=subprocess.STDOUT)
+
 if __name__ == '__main__':
     import os
-    HOST = os.environ.get('SERVER_HOST', 'localhost')
+    HOST = os.environ.get('SERVER_HOST', '0.0.0.0')
     try:
         PORT = int(os.environ.get('SERVER_PORT', '8000'))
     except ValueError:

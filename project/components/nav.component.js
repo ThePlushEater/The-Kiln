@@ -16,7 +16,7 @@ var NavComponent = React.createClass({
     let self = this;
     return (
       <div className={styles.wrapper}>
-        <div className={styles.title}>
+        <div className={styles.title} onClick={()=> {self.props.onClick();}}>
           <div className={styles.titleText}>
             MASONRY
           </div>

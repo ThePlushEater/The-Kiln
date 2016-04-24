@@ -1,7 +1,7 @@
 @media all {
   :local(.wrapper) {
     width: 100%;
-    height: 85%;
+    height: 82.5%;
     color: rgba(0, 0, 0, 1);
   }
   :local(.geolist) {
@@ -10,8 +10,11 @@
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
     height: 80%;
     padding: 5%;
+    background-color: rgb(242, 242, 242);
   }
 
   :local(.geolist div) {
@@ -28,10 +31,48 @@
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
     height: 20%;
+    background-color: rgb(242, 242, 242);
   }
   :local(.button div) {
     padding: 30px 35px 30px 35px;
     border: solid rgba(0, 0, 0, 1) 2px;
     margin: auto;
+  }
+
+  :local(.generic1) {
+    background: url(/static/images/GeometryImages-04.png) no-repeat center center;
+    background-size: contain;
+  }
+  :local(.generic2) {
+    background: url(/static/images/GeometryImages-05.png) no-repeat center center;
+    background-size: contain;
+  }
+  :local(.generic3) {
+    background: url(/static/images/GeometryImages-06.png) no-repeat center center;
+    background-size: contain;
+  }
+  :local(.generic1:hover) {
+    background: url(/static/images/GeometryImages-01.png) no-repeat center center;
+    background-size: contain;
+  }
+  :local(.generic2:hover) {
+    background: url(/static/images/GeometryImages-02.png) no-repeat center center;
+    background-size: contain;
+  }
+  :local(.generic3:hover) {
+    background: url(/static/images/GeometryImages-03.png) no-repeat center center;
+    background-size: contain;
+  }
+  :local(.generic1_selected) {
+    background: url(/static/images/GeometryImages-01.png) no-repeat center center;
+    background-size: contain;
+  }
+  :local(.generic2_selected) {
+    background: url(/static/images/GeometryImages-02.png) no-repeat center center;
+    background-size: contain;
+  }
+  :local(.generic3_selected) {
+    background: url(/static/images/GeometryImages-03.png) no-repeat center center;
+    background-size: contain;
   }
 }

@@ -8,15 +8,18 @@ import KilnComponent from './kiln.component.js';
 
 let AppComponent = React.createClass({
   getInitialState: function() {
-    return {page: 0};
+    return {page: 0, selected: 0};
   },
 
   componentDidMount: function() {
 
   },
 
-  routeToKiln() {
-    this.setState({page: 1});
+  routeToKiln(id: number) {
+    this.setState({page: 1, selected: id});
+  },
+  routeToGeometry() {
+    this.setState({page: 0, selected: 0});
   },
 
   render: function() {
@@ -24,17 +27,17 @@ let AppComponent = React.createClass({
     if (this.state.page == 0) {
       return (
         <div className={styles.wrapper}>
-          <NavComponent />
+          <NavComponent onClick={self.routeToGeometry} />
           <GeometryComponent onClick={self.routeToKiln} />
-          <div className={styles.copyright}>© 2016 Dr. Gentry Corporation</div>
+          <div className={styles.copyright}><div>© 2016 Dr. Gentry Corporation</div></div>
         </div>
       );
     } else if (this.state.page == 1) {
       return (
         <div className={styles.wrapper}>
-          <NavComponent />
-          <KilnComponent />
-          <div className={styles.copyright}>© 2016 Dr. Gentry Corporation</div>
+          <NavComponent onClick={self.routeToGeometry} />
+          <KilnComponent generic={self.state.selected}/>
+          <div className={styles.copyright}><div>© 2016 Dr. Gentry Corporation</div></div>
         </div>
       );
     }

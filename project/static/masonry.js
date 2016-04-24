@@ -83,13 +83,16 @@
 	  displayName: 'AppComponent',
 	
 	  getInitialState: function getInitialState() {
-	    return { page: 0 };
+	    return { page: 0, selected: 0 };
 	  },
 	
 	  componentDidMount: function componentDidMount() {},
 	
-	  routeToKiln: function routeToKiln() {
-	    this.setState({ page: 1 });
+	  routeToKiln: function routeToKiln(id) {
+	    this.setState({ page: 1, selected: id });
+	  },
+	  routeToGeometry: function routeToGeometry() {
+	    this.setState({ page: 0, selected: 0 });
 	  },
 	
 	
@@ -99,24 +102,32 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: _appComponent2.default.wrapper },
-	        _react2.default.createElement(_navComponent2.default, null),
+	        _react2.default.createElement(_navComponent2.default, { onClick: self.routeToGeometry }),
 	        _react2.default.createElement(_geometryComponent2.default, { onClick: self.routeToKiln }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: _appComponent2.default.copyright },
-	          '© 2016 Dr. Gentry Corporation'
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            '© 2016 Dr. Gentry Corporation'
+	          )
 	        )
 	      );
 	    } else if (this.state.page == 1) {
 	      return _react2.default.createElement(
 	        'div',
 	        { className: _appComponent2.default.wrapper },
-	        _react2.default.createElement(_navComponent2.default, null),
-	        _react2.default.createElement(_kilnComponent2.default, null),
+	        _react2.default.createElement(_navComponent2.default, { onClick: self.routeToGeometry }),
+	        _react2.default.createElement(_kilnComponent2.default, { generic: self.state.selected }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: _appComponent2.default.copyright },
-	          '© 2016 Dr. Gentry Corporation'
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            '© 2016 Dr. Gentry Corporation'
+	          )
 	        )
 	      );
 	    }
@@ -20241,7 +20252,7 @@
 	
 	
 	// module
-	exports.push([module.id, "@media all {\r\n  ._1wAqXJ8xd2pWeN6NE2GnrH {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    font-family: 'DroidSerif';\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-direction: column; /* Safari 6.1+ */\r\n    flex-direction: column;\r\n  }\r\n  ._3Bn57dxmEFDOdAj7jTB0Cs {\r\n    font-size: xx-large;\r\n    text-align: center;\r\n    font-weight: 300;\r\n    letter-spacing: 2vw;\r\n    text-transform: uppercase;\r\n    padding: 0;\r\n  }\r\n  ._3Bn57dxmEFDOdAj7jTB0Cs::first-letter {\r\n    color: rgba(230, 60, 65, 1);\r\n  }\r\n  hr {\r\n    border: 1px inset rgba(255, 255, 255, 1);\r\n    margin: 2px 0;\r\n  }\r\n  ._3xUg8RmVggeVcg5BBRS9Qb {\r\n    text-align: center;\r\n    letter-spacing: 2px;\r\n    font-size: small;\r\n  }\r\n  nav {\r\n    padding: 0 2px;\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, "@media all {\r\n  ._1wAqXJ8xd2pWeN6NE2GnrH {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    font-family: 'DroidSerif';\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-direction: column; /* Safari 6.1+ */\r\n    flex-direction: column;\r\n    background-color: rgb(242, 242, 242);\r\n  }\r\n  ._3Bn57dxmEFDOdAj7jTB0Cs {\r\n    font-size: xx-large;\r\n    text-align: center;\r\n    font-weight: 300;\r\n    letter-spacing: 2vw;\r\n    text-transform: uppercase;\r\n    padding: 0;\r\n  }\r\n  ._3Bn57dxmEFDOdAj7jTB0Cs::first-letter {\r\n    color: rgba(230, 60, 65, 1);\r\n  }\r\n  hr {\r\n    border: 1px inset rgba(255, 255, 255, 1);\r\n    margin: 2px 0;\r\n  }\r\n  ._3xUg8RmVggeVcg5BBRS9Qb {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    text-align: center;\r\n    letter-spacing: 2px;\r\n    font-size: small;\r\n    background-color: rgb(242, 242, 242);\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\r\n  ._3xUg8RmVggeVcg5BBRS9Qb div {\r\n    margin: auto;\r\n  }\r\n  nav {\r\n    padding: 0 2px;\r\n  }\r\n}\r\n", ""]);
 	
 	// exports
 	exports.locals = {
@@ -31343,36 +31354,136 @@
 	  displayName: 'GeometryComponent',
 	
 	  getInitialState: function getInitialState() {
-	    return {};
+	    return { selected: 0 };
 	  },
 	
 	  componentDidMount: function componentDidMount() {},
 	
+	  onSelect: function onSelect(id) {
+	    this.setState({ selected: id });
+	  },
+	
+	
 	  render: function render() {
 	    var self = this;
 	    var time = new Date().getTime();
-	    return _react2.default.createElement(
-	      'div',
-	      { className: _geometryComponent2.default.wrapper },
-	      _react2.default.createElement(
+	    if (self.state.selected == 1) {
+	      return _react2.default.createElement(
 	        'div',
-	        { className: _geometryComponent2.default.geolist },
-	        _react2.default.createElement('div', { className: _geometryComponent2.default.generic1 }),
-	        _react2.default.createElement('div', { className: _geometryComponent2.default.generic2 }),
-	        _react2.default.createElement('div', { className: _geometryComponent2.default.generic3 })
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: _geometryComponent2.default.button },
+	        { className: _geometryComponent2.default.wrapper },
 	        _react2.default.createElement(
 	          'div',
-	          { onClick: function onClick() {
-	              self.props.onClick();
-	            } },
-	          'enter the kiln'
+	          { className: _geometryComponent2.default.geolist },
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic1_selected, onClick: function onClick() {
+	              self.onSelect(1);
+	            } }),
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic2, onClick: function onClick() {
+	              self.onSelect(2);
+	            } }),
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic3, onClick: function onClick() {
+	              self.onSelect(3);
+	            } })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _geometryComponent2.default.button },
+	          _react2.default.createElement(
+	            'div',
+	            { onClick: function onClick() {
+	                self.props.onClick(self.state.selected);
+	              } },
+	            'enter the kiln'
+	          )
 	        )
-	      )
-	    );
+	      );
+	    } else if (self.state.selected == 2) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: _geometryComponent2.default.wrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: _geometryComponent2.default.geolist },
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic1, onClick: function onClick() {
+	              self.onSelect(1);
+	            } }),
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic2_selected, onClick: function onClick() {
+	              self.onSelect(2);
+	            } }),
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic3, onClick: function onClick() {
+	              self.onSelect(3);
+	            } })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _geometryComponent2.default.button },
+	          _react2.default.createElement(
+	            'div',
+	            { onClick: function onClick() {
+	                self.props.onClick(self.state.selected);
+	              } },
+	            'enter the kiln'
+	          )
+	        )
+	      );
+	    } else if (self.state.selected == 3) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: _geometryComponent2.default.wrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: _geometryComponent2.default.geolist },
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic1, onClick: function onClick() {
+	              self.onSelect(1);
+	            } }),
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic2, onClick: function onClick() {
+	              self.onSelect(2);
+	            } }),
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic3_selected, onClick: function onClick() {
+	              self.onSelect(3);
+	            } })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _geometryComponent2.default.button },
+	          _react2.default.createElement(
+	            'div',
+	            { onClick: function onClick() {
+	                self.props.onClick(self.state.selected);
+	              } },
+	            'enter the kiln'
+	          )
+	        )
+	      );
+	    } else if (self.state.selected == 0) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: _geometryComponent2.default.wrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: _geometryComponent2.default.geolist },
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic1, onClick: function onClick() {
+	              self.onSelect(1);
+	            } }),
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic2, onClick: function onClick() {
+	              self.onSelect(2);
+	            } }),
+	          _react2.default.createElement('div', { className: _geometryComponent2.default.generic3, onClick: function onClick() {
+	              self.onSelect(3);
+	            } })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _geometryComponent2.default.button },
+	          _react2.default.createElement(
+	            'div',
+	            { onClick: function onClick() {
+	                self.props.onClick(self.state.selected);
+	              } },
+	            'enter the kiln'
+	          )
+	        )
+	      );
+	    }
 	  }
 	});
 	
@@ -31419,13 +31530,19 @@
 	
 	
 	// module
-	exports.push([module.id, "@media all {\r\n  ._1LJXqUV4utfl2wvjJR4bO {\r\n    width: 100%;\r\n    height: 85%;\r\n    color: rgba(0, 0, 0, 1);\r\n  }\r\n  ._2e8vwMR52LpPGhGDac3lq3 {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    height: 80%;\r\n    padding: 5%;\r\n  }\r\n\r\n  ._2e8vwMR52LpPGhGDac3lq3 div {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n    height: 100%;\r\n    margin: 24px;\r\n  }\r\n\r\n  ._2W5GqjOMJZifK4eBr6DRCQ {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    height: 20%;\r\n  }\r\n  ._2W5GqjOMJZifK4eBr6DRCQ div {\r\n    padding: 30px 35px 30px 35px;\r\n    border: solid rgba(0, 0, 0, 1) 2px;\r\n    margin: auto;\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, "@media all {\r\n  ._1LJXqUV4utfl2wvjJR4bO {\r\n    width: 100%;\r\n    height: 82.5%;\r\n    color: rgba(0, 0, 0, 1);\r\n  }\r\n  ._2e8vwMR52LpPGhGDac3lq3 {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n    height: 80%;\r\n    padding: 5%;\r\n    background-color: rgb(242, 242, 242);\r\n  }\r\n\r\n  ._2e8vwMR52LpPGhGDac3lq3 div {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n    height: 100%;\r\n    margin: 24px;\r\n  }\r\n\r\n  ._2W5GqjOMJZifK4eBr6DRCQ {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    height: 20%;\n    background-color: rgb(242, 242, 242);\r\n  }\r\n  ._2W5GqjOMJZifK4eBr6DRCQ div {\r\n    padding: 30px 35px 30px 35px;\r\n    border: solid rgba(0, 0, 0, 1) 2px;\r\n    margin: auto;\r\n  }\r\n\r\n  .D8vdIOMtD7ZHyD3U3-A-s {\r\n    background: url(/static/images/GeometryImages-04.png) no-repeat center center;\r\n    background-size: contain;\r\n  }\r\n  ._3p0aQpKu6fjLznZyhUK8Go {\r\n    background: url(/static/images/GeometryImages-05.png) no-repeat center center;\r\n    background-size: contain;\r\n  }\r\n  .FT_kGfIp0vgrQXj4qc3ru {\r\n    background: url(/static/images/GeometryImages-06.png) no-repeat center center;\r\n    background-size: contain;\r\n  }\r\n  .D8vdIOMtD7ZHyD3U3-A-s:hover {\r\n    background: url(/static/images/GeometryImages-01.png) no-repeat center center;\r\n    background-size: contain;\r\n  }\r\n  ._3p0aQpKu6fjLznZyhUK8Go:hover {\r\n    background: url(/static/images/GeometryImages-02.png) no-repeat center center;\r\n    background-size: contain;\r\n  }\r\n  .FT_kGfIp0vgrQXj4qc3ru:hover {\r\n    background: url(/static/images/GeometryImages-03.png) no-repeat center center;\r\n    background-size: contain;\r\n  }\r\n  .giZmjnmMiCjx_Vi-CdcNo {\r\n    background: url(/static/images/GeometryImages-01.png) no-repeat center center;\r\n    background-size: contain;\r\n  }\r\n  ._1eRYYXeGt4JzGPhyZ28mXQ {\r\n    background: url(/static/images/GeometryImages-02.png) no-repeat center center;\r\n    background-size: contain;\r\n  }\r\n  ._11ryGhh1HAP4jj1cE3XnX8 {\r\n    background: url(/static/images/GeometryImages-03.png) no-repeat center center;\r\n    background-size: contain;\r\n  }\r\n}\r\n", ""]);
 	
 	// exports
 	exports.locals = {
 		"wrapper": "_1LJXqUV4utfl2wvjJR4bO",
 		"geolist": "_2e8vwMR52LpPGhGDac3lq3",
-		"button": "_2W5GqjOMJZifK4eBr6DRCQ"
+		"button": "_2W5GqjOMJZifK4eBr6DRCQ",
+		"generic1": "D8vdIOMtD7ZHyD3U3-A-s",
+		"generic2": "_3p0aQpKu6fjLznZyhUK8Go",
+		"generic3": "FT_kGfIp0vgrQXj4qc3ru",
+		"generic1_selected": "giZmjnmMiCjx_Vi-CdcNo",
+		"generic2_selected": "_1eRYYXeGt4JzGPhyZ28mXQ",
+		"generic3_selected": "_11ryGhh1HAP4jj1cE3XnX8"
 	};
 
 /***/ },
@@ -31467,7 +31584,9 @@
 	      { className: _navComponent2.default.wrapper },
 	      _react2.default.createElement(
 	        'div',
-	        { className: _navComponent2.default.title },
+	        { className: _navComponent2.default.title, onClick: function onClick() {
+	            self.props.onClick();
+	          } },
 	        _react2.default.createElement(
 	          'div',
 	          { className: _navComponent2.default.titleText },
@@ -31542,7 +31661,7 @@
 	
 	
 	// module
-	exports.push([module.id, "@media all {\r\n  ._3wMgJ_xvlU5McPl5aZSa-K {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    color: #ffffff;\r\n    background-color: #000000;\r\n    height: 15%;\r\n    padding: 8px;\r\n  }\r\n  ._1-gHMdvo7rivdC2tEZhzLL {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n\r\n    font-family: 'PlayfairDisplay';\r\n  }\r\n  ._2FR0mFsuSHc8D8sX6-mZRS {\r\n    font-family: 'PlayfairDisplay-Black';\r\n    color:#fff;\r\n    text-transform: uppercase;\r\n    font-size: 2.6em;\r\n    margin-right: 5%;\r\n    align-self: center;\r\n  }\r\n  ._312JitSTIEZl2sELd3s4Am {\r\n    font-family: 'DroidSerif';\r\n    color:#fff;\r\n    text-transform: lowercase;\r\n    font-size: 1.8em;\r\n    margin-right: 5%;\r\n    align-self: center;\r\n    white-space: nowrap;\r\n  }\r\n  .sHmeQTEq7SCRK9TUcKXyh {\r\n    padding: 10px 20px 6px 20px;\r\n    color: #fff;\r\n    margin: 0 10% 0 10%;\r\n    font-size:1.1em;\r\n    text-transform: lowercase;\r\n    white-space: nowrap;\r\n    margin: auto;\r\n  }\r\n  ._1_FvoR51psbKEW7X8bILKl {\r\n      font-family: 'DroidSerif-Bold';\r\n      font-weight: bold;\r\n      border-style: solid;\r\n      border-color: white;\r\n  }\r\n  .sHmeQTEq7SCRK9TUcKXyh:hover {\r\n      color: #000;\r\n      background-color: #fff;\r\n  }\r\n  ._1WYwB-TguTCyDYdFz_ZmsL {\r\n    background-color:#000000;\r\n    -webkit-flex: 0 0 15%;;\r\n    -moz-flex: 0 0 15%;;\r\n    -ms-flex: 0 0 15%;;\r\n    flex: 0 0 15%;\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, "@media all {\r\n  ._3wMgJ_xvlU5McPl5aZSa-K {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    color: #ffffff;\r\n    background-color: #000000;\r\n    height: 15%`;\r\n    padding: 8px 16px;\r\n  }\r\n  ._1-gHMdvo7rivdC2tEZhzLL {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n\r\n    font-family: 'PlayfairDisplay';\r\n  }\r\n  ._2FR0mFsuSHc8D8sX6-mZRS {\r\n    font-family: 'PlayfairDisplay-Black';\r\n    color:#fff;\r\n    text-transform: uppercase;\r\n    font-size: 2.6em;\r\n    margin-right: 5%;\r\n    align-self: center;\r\n  }\r\n  ._312JitSTIEZl2sELd3s4Am {\r\n    font-family: 'DroidSerif';\r\n    color:#fff;\r\n    text-transform: lowercase;\r\n    font-size: 1.8em;\r\n    margin-right: 5%;\r\n    align-self: center;\r\n    white-space: nowrap;\r\n  }\r\n  .sHmeQTEq7SCRK9TUcKXyh {\r\n    padding: 10px 20px 6px 20px;\r\n    color: #fff;\r\n    margin: 0 10% 0 10%;\r\n    font-size:1.1em;\r\n    text-transform: lowercase;\r\n    white-space: nowrap;\r\n    margin: auto;\r\n  }\r\n  ._1_FvoR51psbKEW7X8bILKl {\r\n      font-family: 'DroidSerif-Bold';\r\n      font-weight: bold;\r\n      border-style: solid;\r\n      border-color: white;\r\n  }\r\n  .sHmeQTEq7SCRK9TUcKXyh:hover {\r\n      color: #000;\r\n      background-color: #fff;\r\n  }\r\n  ._1WYwB-TguTCyDYdFz_ZmsL {\r\n    background-color:#000000;\r\n    -webkit-flex: 0 0 15%;;\r\n    -moz-flex: 0 0 15%;;\r\n    -ms-flex: 0 0 15%;;\r\n    flex: 0 0 15%;\r\n  }\r\n}\r\n\r\n@media only screen and (orientation: portrait) {\r\n  ._312JitSTIEZl2sELd3s4Am {\r\n    display: none;\r\n  }\r\n}\r\n", ""]);
 	
 	// exports
 	exports.locals = {
@@ -31568,9 +31687,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _jquery = __webpack_require__(/*! jquery */ 164);
+	var _reactDom = __webpack_require__(/*! react-dom */ 158);
 	
-	var _jquery2 = _interopRequireDefault(_jquery);
+	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
 	var _kilnComponent = __webpack_require__(/*! ./kiln.component.css */ 186);
 	
@@ -31582,19 +31701,1115 @@
 	  displayName: 'KilnComponent',
 	
 	  getInitialState: function getInitialState() {
-	    return {};
+	    return {
+	      item0: {
+	        id: 0,
+	        name: "",
+	        preset: 0,
+	        hval: 0,
+	        sval: 100,
+	        bval: 100,
+	        image: ""
+	      },
+	      item1: {
+	        id: 1,
+	        name: "",
+	        preset: 0,
+	        hval: 0,
+	        sval: 100,
+	        bval: 100,
+	        image: ""
+	      },
+	      item2: {
+	        id: 2,
+	        name: "",
+	        preset: 0,
+	        hval: 0,
+	        sval: 100,
+	        bval: 100,
+	        image: ""
+	      },
+	      item3: {
+	        id: 3,
+	        name: "",
+	        preset: 0,
+	        hval: 0,
+	        sval: 100,
+	        bval: 100,
+	        image: ""
+	      },
+	      item4: {
+	        id: 4,
+	        name: "",
+	        preset: 0,
+	        hval: 0,
+	        sval: 100,
+	        bval: 100,
+	        image: ""
+	      },
+	      selected: 0
+	    };
 	  },
 	
-	  componentDidMount: function componentDidMount() {},
+	  componentDidMount: function componentDidMount() {
+	    var self = this;
+	    $("#baseColorVariation").slider();
+	    $("#speckleSizeVariation").slider();
+	    $("#dragSizeVariation").slider();
+	    $("#dragDesityVariation").slider();
+	    $("#crackSizeVariation").slider();
+	    $("#crackNoiseVariation").slider();
+	
+	    $('#baseColorSelector').ColorPicker({
+	      color: '#ff0000',
+	      flat: true,
+	      onChange: function onChange(hsb, hex, rgb) {
+	        if (self.state.selected == 0) {
+	          self.state.item0.hval = hsb.h;
+	          self.state.item0.sval = hsb.s;
+	          self.state.item0.bval = hsb.b;
+	        } else if (self.state.selected == 1) {
+	          self.state.item1.hval = hsb.h;
+	          self.state.item1.sval = hsb.s;
+	          self.state.item1.bval = hsb.b;
+	        } else if (self.state.selected == 2) {
+	          self.state.item2.hval = hsb.h;
+	          self.state.item2.sval = hsb.s;
+	          self.state.item2.bval = hsb.b;
+	        } else if (self.state.selected == 3) {
+	          self.state.item3.hval = hsb.h;
+	          self.state.item3.sval = hsb.s;
+	          self.state.item3.bval = hsb.b;
+	        } else if (self.state.selected == 4) {
+	          self.state.item4.hval = hsb.h;
+	          self.state.item4.sval = hsb.s;
+	          self.state.item4.bval = hsb.b;
+	        }
+	      }
+	    });
+	    $('#speckleColorSelector').ColorPicker({
+	      color: '#ff0000',
+	      flat: true,
+	      onChange: function onChange(hsb, hex, rgb) {
+	        console.log(hex);
+	      }
+	    });
+	  },
+	
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    this.setState({ generic: nextProps.generic });
+	    console.log(this.state);
+	    /*
+	    if (nextProps.task != null && nextProps.task.length == 1) {
+	      this.setState({task: nextProps.task});
+	    }
+	    */
+	  },
+	
+	  onChangeName: function onChangeName(item, event) {
+	    item.name = event.target.value;
+	    this.setState({ item: item });
+	  },
+	
+	  onChangePreset: function onChangePreset(item, event) {
+	    item.preset = event.target.value;
+	    this.setState({ item: item });
+	    console.log(this.state.item);
+	  },
+	
+	  onSelect: function onSelect(id) {
+	    this.setState({ selected: id });
+	  },
+	
+	  onBake: function onBake(item) {
+	    console.log(item);
+	    var self = this;
+	    $.ajax({
+	      url: "/task/" + item.id,
+	      type: 'PUT',
+	      contentType: 'application/json',
+	      data: JSON.stringify({
+	        id: item.id,
+	        name: item.name,
+	        hval: item.hval,
+	        sval: item.sval,
+	        bval: item.bval
+	      }),
+	      dataType: "json",
+	      success: function (data) {
+	        item.image = data.filename;
+	        self.setState({ selected: self.state.selected });
+	      }.bind(this),
+	      error: function (xhr, status, err) {
+	        console.error("/tasks", status, err.toString());
+	      }.bind(this)
+	    });
+	  },
 	
 	  render: function render() {
 	    var self = this;
 	    var time = new Date().getTime();
-	    return _react2.default.createElement(
-	      'div',
-	      { className: _kilnComponent2.default.wrapper },
-	      'KILN'
-	    );
+	    if (self.state.selected == 0) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: _kilnComponent2.default.wrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: _kilnComponent2.default.leftPanel },
+	          _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', key: self.state.item0.id, placeholder: 'Name your brick', value: self.state.item0.name, onChange: function onChange(event) {
+	              self.onChangeName(self.state.item0, event);
+	            } }),
+	          _react2.default.createElement(
+	            'select',
+	            { className: _kilnComponent2.default.inputPreset, onChange: function onChange(event) {
+	                self.onChangePreset(self.state.item0, event);
+	              } },
+	            _react2.default.createElement(
+	              'option',
+	              { value: '0' },
+	              'Choose from an existing brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '1' },
+	              'Standard Red Brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '2' },
+	              'Standard Green Brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '3' },
+	              'The Mason Special'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.dimension },
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Width (cm)' }),
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Height (cm)' }),
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Length (cm)' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Base Color:'
+	            ),
+	            _react2.default.createElement('div', { id: 'baseColorSelector', className: _kilnComponent2.default.picker })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Base Color Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'baseColorVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Speckle Color:'
+	            ),
+	            _react2.default.createElement('div', { id: 'speckleColorSelector', className: _kilnComponent2.default.picker })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Speckle Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'speckleSizeVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Drag Mark Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'dragSizeVariation' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Drag Mark Density Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'dragDesityVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Crack Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'crackSizeVariation' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Crack Noise Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'crackNoiseVariation' })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _kilnComponent2.default.rightPanel },
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.resultPanel },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.thumbnail_image },
+	              _react2.default.createElement('img', { src: self.state.item0.image + "?ver=" + time })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.button, onClick: function onClick() {
+	                  self.onBake(self.state.item0);
+	                } },
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                'fire me up'
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.queuePanel },
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue1', className: _kilnComponent2.default.selected, onClick: function onClick() {
+	                  self.onSelect(0);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue2', onClick: function onClick() {
+	                  self.onSelect(1);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue3', onClick: function onClick() {
+	                  self.onSelect(2);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue4', onClick: function onClick() {
+	                  self.onSelect(3);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue5', onClick: function onClick() {
+	                  self.onSelect(4);
+	                } },
+	              'READY'
+	            )
+	          )
+	        )
+	      );
+	    } else if (self.state.selected == 1) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: _kilnComponent2.default.wrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: _kilnComponent2.default.leftPanel },
+	          _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', key: self.state.item1.id, placeholder: 'Name your brick', value: self.state.item1.name, onChange: function onChange(event) {
+	              self.onChangeName(self.state.item1, event);
+	            } }),
+	          _react2.default.createElement(
+	            'select',
+	            { className: _kilnComponent2.default.inputPreset, onChange: function onChange(event) {
+	                self.onChangePreset(self.state.item1, event);
+	              } },
+	            _react2.default.createElement(
+	              'option',
+	              { value: '0' },
+	              'Choose from an existing brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '1' },
+	              'Standard Red Brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '2' },
+	              'Standard Green Brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '3' },
+	              'The Mason Special'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.dimension },
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Width (cm)' }),
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Height (cm)' }),
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Length (cm)' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Base Color:'
+	            ),
+	            _react2.default.createElement('div', { id: 'baseColorSelector', className: _kilnComponent2.default.picker })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Base Color Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'baseColorVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Speckle Color:'
+	            ),
+	            _react2.default.createElement('div', { id: 'speckleColorSelector', className: _kilnComponent2.default.picker })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Speckle Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'speckleSizeVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Drag Mark Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'dragSizeVariation' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Drag Mark Density Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'dragDesityVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Crack Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'crackSizeVariation' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Crack Noise Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'crackNoiseVariation' })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _kilnComponent2.default.rightPanel },
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.resultPanel },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.thumbnail_image },
+	              _react2.default.createElement('img', { src: self.state.item1.image + "?ver=" + time })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.button, onClick: function onClick() {
+	                  self.onBake(self.state.item1);
+	                } },
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                'fire me up'
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.queuePanel },
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue1', onClick: function onClick() {
+	                  self.onSelect(0);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue2', className: _kilnComponent2.default.selected, onClick: function onClick() {
+	                  self.onSelect(1);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue3', onClick: function onClick() {
+	                  self.onSelect(2);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue4', onClick: function onClick() {
+	                  self.onSelect(3);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue5', onClick: function onClick() {
+	                  self.onSelect(4);
+	                } },
+	              'READY'
+	            )
+	          )
+	        )
+	      );
+	    } else if (self.state.selected == 2) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: _kilnComponent2.default.wrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: _kilnComponent2.default.leftPanel },
+	          _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', key: self.state.item2.id, placeholder: 'Name your brick', value: self.state.item2.name, onChange: function onChange(event) {
+	              self.onChangeName(self.state.item2, event);
+	            } }),
+	          _react2.default.createElement(
+	            'select',
+	            { className: _kilnComponent2.default.inputPreset, onChange: function onChange(event) {
+	                self.onChangePreset(self.state.item2, event);
+	              } },
+	            _react2.default.createElement(
+	              'option',
+	              { value: '0' },
+	              'Choose from an existing brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '1' },
+	              'Standard Red Brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '2' },
+	              'Standard Green Brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '3' },
+	              'The Mason Special'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.dimension },
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Width (cm)' }),
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Height (cm)' }),
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Length (cm)' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Base Color:'
+	            ),
+	            _react2.default.createElement('div', { id: 'baseColorSelector', className: _kilnComponent2.default.picker })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Base Color Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'baseColorVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Speckle Color:'
+	            ),
+	            _react2.default.createElement('div', { id: 'speckleColorSelector', className: _kilnComponent2.default.picker })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Speckle Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'speckleSizeVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Drag Mark Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'dragSizeVariation' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Drag Mark Density Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'dragDesityVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Crack Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'crackSizeVariation' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Crack Noise Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'crackNoiseVariation' })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _kilnComponent2.default.rightPanel },
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.resultPanel },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.thumbnail_image },
+	              _react2.default.createElement('img', { src: self.state.item2.image + "?ver=" + time })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.button, onClick: function onClick() {
+	                  self.onBake(self.state.item2);
+	                } },
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                'fire me up'
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.queuePanel },
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue1', onClick: function onClick() {
+	                  self.onSelect(0);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue2', onClick: function onClick() {
+	                  self.onSelect(1);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue3', className: _kilnComponent2.default.selected, onClick: function onClick() {
+	                  self.onSelect(2);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue4', onClick: function onClick() {
+	                  self.onSelect(3);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue5', onClick: function onClick() {
+	                  self.onSelect(4);
+	                } },
+	              'READY'
+	            )
+	          )
+	        )
+	      );
+	    } else if (self.state.selected == 3) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: _kilnComponent2.default.wrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: _kilnComponent2.default.leftPanel },
+	          _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', key: self.state.item3.id, placeholder: 'Name your brick', value: self.state.item3.name, onChange: function onChange(event) {
+	              self.onChangeName(self.state.item3, event);
+	            } }),
+	          _react2.default.createElement(
+	            'select',
+	            { className: _kilnComponent2.default.inputPreset, onChange: function onChange(event) {
+	                self.onChangePreset(self.state.item3, event);
+	              } },
+	            _react2.default.createElement(
+	              'option',
+	              { value: '0' },
+	              'Choose from an existing brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '1' },
+	              'Standard Red Brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '2' },
+	              'Standard Green Brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '3' },
+	              'The Mason Special'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.dimension },
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Width (cm)' }),
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Height (cm)' }),
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Length (cm)' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Base Color:'
+	            ),
+	            _react2.default.createElement('div', { id: 'baseColorSelector', className: _kilnComponent2.default.picker })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Base Color Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'baseColorVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Speckle Color:'
+	            ),
+	            _react2.default.createElement('div', { id: 'speckleColorSelector', className: _kilnComponent2.default.picker })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Speckle Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'speckleSizeVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Drag Mark Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'dragSizeVariation' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Drag Mark Density Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'dragDesityVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Crack Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'crackSizeVariation' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Crack Noise Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'crackNoiseVariation' })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _kilnComponent2.default.rightPanel },
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.resultPanel },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.thumbnail_image },
+	              _react2.default.createElement('img', { src: self.state.item3.image + "?ver=" + time })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.button, onClick: function onClick() {
+	                  self.onBake(self.state.item3);
+	                } },
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                'fire me up'
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.queuePanel },
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue1', onClick: function onClick() {
+	                  self.onSelect(0);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue2', onClick: function onClick() {
+	                  self.onSelect(1);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue3', onClick: function onClick() {
+	                  self.onSelect(2);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue4', className: _kilnComponent2.default.selected, onClick: function onClick() {
+	                  self.onSelect(3);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue5', onClick: function onClick() {
+	                  self.onSelect(4);
+	                } },
+	              'READY'
+	            )
+	          )
+	        )
+	      );
+	    } else if (self.state.selected == 4) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: _kilnComponent2.default.wrapper },
+	        _react2.default.createElement(
+	          'div',
+	          { className: _kilnComponent2.default.leftPanel },
+	          _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', key: self.state.item4.id, placeholder: 'Name your brick', value: self.state.item4.name, onChange: function onChange(event) {
+	              self.onChangeName(self.state.item4, event);
+	            } }),
+	          _react2.default.createElement(
+	            'select',
+	            { className: _kilnComponent2.default.inputPreset, onChange: function onChange(event) {
+	                self.onChangePreset(self.state.item4, event);
+	              } },
+	            _react2.default.createElement(
+	              'option',
+	              { value: '0' },
+	              'Choose from an existing brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '1' },
+	              'Standard Red Brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '2' },
+	              'Standard Green Brick'
+	            ),
+	            _react2.default.createElement(
+	              'option',
+	              { value: '3' },
+	              'The Mason Special'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.dimension },
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Width (cm)' }),
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Height (cm)' }),
+	            _react2.default.createElement('input', { className: _kilnComponent2.default.inputBrickName, type: 'text', placeholder: 'Length (cm)' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Base Color:'
+	            ),
+	            _react2.default.createElement('div', { id: 'baseColorSelector', className: _kilnComponent2.default.picker })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Base Color Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'baseColorVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Speckle Color:'
+	            ),
+	            _react2.default.createElement('div', { id: 'speckleColorSelector', className: _kilnComponent2.default.picker })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Speckle Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'speckleSizeVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Drag Mark Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'dragSizeVariation' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Drag Mark Density Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'dragDesityVariation' })
+	          ),
+	          _react2.default.createElement('hr', { className: _kilnComponent2.default.hr }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Crack Size Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'crackSizeVariation' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.slider },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.sliderText },
+	              'Crack Noise Variation:'
+	            ),
+	            _react2.default.createElement('div', { id: 'crackNoiseVariation' })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _kilnComponent2.default.rightPanel },
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.resultPanel },
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.thumbnail_image },
+	              _react2.default.createElement('img', { src: self.state.item4.image + "?ver=" + time })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: _kilnComponent2.default.button, onClick: function onClick() {
+	                  self.onBake(self.state.item4);
+	                } },
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                'fire me up'
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: _kilnComponent2.default.queuePanel },
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue1', onClick: function onClick() {
+	                  self.onSelect(0);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue2', onClick: function onClick() {
+	                  self.onSelect(1);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue3', onClick: function onClick() {
+	                  self.onSelect(2);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue4', onClick: function onClick() {
+	                  self.onSelect(3);
+	                } },
+	              'READY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'queue5', className: _kilnComponent2.default.selected, onClick: function onClick() {
+	                  self.onSelect(4);
+	                } },
+	              'READY'
+	            )
+	          )
+	        )
+	      );
+	    }
 	  }
 	});
 	
@@ -31641,11 +32856,24 @@
 	
 	
 	// module
-	exports.push([module.id, "@media all {\r\n  ._16iZkkHDCnIY6QMs34azJ {\r\n    width: 100%;\r\n    height: 85%;\r\n    color: rgba(0, 0, 0, 1);\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, "@media all {\r\n  ._16iZkkHDCnIY6QMs34azJ {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n\r\n    width: 100%;\r\n    height: 82.5%;\r\n    color: rgba(0, 0, 0, 1);\r\n    background-color: rgb(242, 242, 242);\r\n  }\r\n  ._10W9aRE9hef2lklG6rN_Cd {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n    max-width: 33%;\r\n    background-color: #333333;\r\n    height: 100%;\r\n    overflow-y: auto;\r\n  }\r\n  .fU8SkPNGdqrCkdrlG9499 {\r\n    -webkit-flex-grow: 3;\r\n    flex-grow: 3;\r\n\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-direction: column; /* Safari 6.1+ */\r\n    flex-direction: column;\r\n  }\r\n  ._3v6x_i4FURCR0XDwsCybBi {\r\n    border: 2px solid #F2F2F2;\r\n    border-radius: 0px;\r\n    background-color: #333333;\r\n    font-family: 'DroidSerif';\r\n    color: #F2F2F2;\r\n    display: inline-block;\r\n    padding: 10px;\r\n    width: 90%;\r\n    margin: 5% 5% 0 5%;\r\n    font-size: 1em;\r\n  }\r\n  ._3vu4QO31pIGA3iucRP7Qtk {\r\n    -webkit-appearance: none;\r\n    -webkit-padding-end: 30px;\r\n    -webkit-user-select: none;\r\n    background-image: url(/static/images/DropDownArrow.png);\r\n    background-position: 97% center;\r\n    background-repeat: no-repeat;\r\n    border: 2px solid #F2F2F2;\r\n    border-radius: 0px;\r\n    background-color: #333333;\r\n    font-family: 'DroidSerif';\r\n    color: #F2F2F2;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    display: inline-block;\r\n    padding: 10px;\r\n    width: 90%;\r\n    margin: 5% 5% 0 5%;\r\n    font-size: 1em;\r\n  }\r\n  ._24cyzATEqnKgS884woHUqa {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n  }\r\n\r\n  ._24cyzATEqnKgS884woHUqa input {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\r\n  ._87PPxiRvn7VIdatd4WyxI {\r\n    -webkit-appearance: none;\r\n    -webkit-padding-end: 30px;\r\n    -webkit-user-select: none;\r\n    background-color: #333333;\r\n    font-family: 'DroidSerif';\r\n    color: #F2F2F2;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    display: inline-block;\r\n    padding: 10px;\r\n    width: 90%;\r\n    margin: 0% 5% 0 5%;\r\n    font-size: 1em;\r\n    text-align: left;\r\n  }\r\n  ._3n5XmdZM0f9WZ7wM5fXY3J {\r\n    text-align: left;\r\n    padding-bottom: 8px;\r\n  }\r\n  .IcCLRunn_2cZAFX6i4gkL {\r\n    margin-top: 16px;\r\n  }\r\n  ._1xAj-zH3b-ALrBisLXCiqq {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    -webkit-flex-direction: column; /* Safari 6.1+ */\r\n    flex-direction: column;\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\r\n  ._19s1iT2ebSPFlnyz9DgHYN {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n\r\n    height: 60px;\r\n    padding: 0 8px;\r\n    background-color: #333333;\r\n  }\r\n  ._19s1iT2ebSPFlnyz9DgHYN div {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n    color: #ffffff;\r\n    border-right: 2px solid #ffffff;\r\n    padding: 2px;\r\n    margin: auto;\r\n  }\r\n  ._19s1iT2ebSPFlnyz9DgHYN div:nth-child(5) {\r\n    border: 0px solid #ffffff !important;\r\n  }\r\n  ._19s1iT2ebSPFlnyz9DgHYN div:hover {\r\n    color: #000000;\r\n    background-color: #ffffff;\r\n  }\r\n  ._1GQ8i4ksD5oUWkiRa6uY4V {\r\n    color: #000000 !important;\r\n    background-color: #ffffff !important;\r\n  }\r\n  .zXqEW6b9nymAOciIlvAdD {\r\n    width: 100%;\r\n    max-height: 80%;\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n  }\r\n  ._2ah--wSKkPtsjMUsPK2_iu {\r\n    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */\r\n    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */\r\n    display: -ms-flexbox;      /* TWEENER - IE 10 */\r\n    display: -webkit-flex;     /* NEW - Chrome */\r\n    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */\r\n    height: 80px;\r\n  }\r\n  ._2ah--wSKkPtsjMUsPK2_iu div {\r\n    margin: auto;\r\n    padding: 20px 35px 20px 35px;\r\n    border: solid rgba(0, 0, 0, 1) 2px;\r\n    margin: auto;\r\n  }\r\n}\r\n\r\n@media only screen and (orientation: portrait) {\r\n  ._16iZkkHDCnIY6QMs34azJ {\r\n    display: block;\r\n    width: 100%;\r\n    height: 82.5%;\r\n    color: rgba(0, 0, 0, 1);\r\n    background-color: rgb(242, 242, 242);\r\n    overflow-y: auto;\r\n  }\r\n  ._10W9aRE9hef2lklG6rN_Cd {\r\n    -webkit-flex-grow: 1;\r\n    flex-grow: 1;\r\n    background-color: #333333;\r\n    height: 100%;\r\n    max-width: 100%;\r\n    overflow-y: auto;\r\n  }\r\n}\r\n", ""]);
 	
 	// exports
 	exports.locals = {
-		"wrapper": "_16iZkkHDCnIY6QMs34azJ"
+		"wrapper": "_16iZkkHDCnIY6QMs34azJ",
+		"leftPanel": "_10W9aRE9hef2lklG6rN_Cd",
+		"rightPanel": "fU8SkPNGdqrCkdrlG9499",
+		"inputBrickName": "_3v6x_i4FURCR0XDwsCybBi",
+		"inputPreset": "_3vu4QO31pIGA3iucRP7Qtk",
+		"dimension": "_24cyzATEqnKgS884woHUqa",
+		"slider": "_87PPxiRvn7VIdatd4WyxI",
+		"sliderText": "_3n5XmdZM0f9WZ7wM5fXY3J",
+		"hr": "IcCLRunn_2cZAFX6i4gkL",
+		"resultPanel": "_1xAj-zH3b-ALrBisLXCiqq",
+		"queuePanel": "_19s1iT2ebSPFlnyz9DgHYN",
+		"selected": "_1GQ8i4ksD5oUWkiRa6uY4V",
+		"thumbnail_image": "zXqEW6b9nymAOciIlvAdD",
+		"button": "_2ah--wSKkPtsjMUsPK2_iu"
 	};
 
 /***/ }
