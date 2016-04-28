@@ -191,24 +191,38 @@ def render(filename, options):
     ans = subprocess.call(command, stderr=subprocess.STDOUT)
 
 def render2(request):
-    generic = 1
+    generic = int(request.json['generic'])
     filename = request.json['name']
     hue = str(request.json['hval'])
     saturation = str(request.json['sval'])
     value = str(request.json['bval'])
+    dsize = str(request.json['dsize'])
+    ddensity = str(request.json['ddensity'])
+    csize = str(request.json['csize'])
+    cnoise = str(request.json['cnoise'])
 
     #app.logger.warning(generic)
     blender = 'C:/Program Files/Blender Foundation/Blender/blender.exe'
     blend = url_for('static', filename='blender/masonry1.blend')
 
     #file = '-b project/static/blender/brick3.blend -P project/progress.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 '
-    file = '-b project/static/blender/masonry1.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue + ' -hsv_s ' + saturation + ' -hsv_v ' + value
-    if generic == 2:
-        file = '-b project/static/blender/masonry2.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue
+    if generic == 1:
+        file = '-b project/static/blender/masonry1.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue + ' -hsv_s ' + saturation + ' -hsv_v ' + value + ' -d_size ' + dsize + ' -d_density ' + ddensity + ' -c_size ' + csize + ' -c_noise ' + cnoise
+        command = ' '.join([blender, file])
+        ans = subprocess.call(command, stderr=subprocess.STDOUT)
+
+    elif generic == 2:
+        file = '-b project/static/blender/masonry2.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue + ' -hsv_s ' + saturation + ' -hsv_v ' + value + ' -d_size ' + dsize + ' -d_density ' + ddensity + ' -c_size ' + csize + ' -c_noise ' + cnoise
+        command = ' '.join([blender, file])
+        ans = subprocess.call(command, stderr=subprocess.STDOUT)
+
     elif generic == 3:
-        file = '-b project/static/blender/masonry3.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue
-    command = ' '.join([blender, file])
-    ans = subprocess.call(command, stderr=subprocess.STDOUT)
+        file = '-b project/static/blender/masonry3.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue + ' -hsv_s ' + saturation + ' -hsv_v ' + value + ' -d_size ' + dsize + ' -d_density ' + ddensity + ' -c_size ' + csize + ' -c_noise ' + cnoise
+        command = ' '.join([blender, file])
+        ans = subprocess.call(command, stderr=subprocess.STDOUT)
+
+
+
 
 if __name__ == '__main__':
     import os
@@ -216,5 +230,5 @@ if __name__ == '__main__':
     try:
         PORT = int(os.environ.get('SERVER_PORT', '8000'))
     except ValueError:
-        PORT = 8000
+        PORT = 80
     app.run(HOST, PORT, threaded=True)

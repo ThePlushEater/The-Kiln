@@ -3,53 +3,59 @@ import ReactDOM from 'react-dom';
 
 import styles from './kiln.component.css';
 
+import 'react-colors-picker/assets/index.css';
+import {Panel as ColorPickerPanel} from 'react-colors-picker';
+
 var KilnComponent = React.createClass({
   getInitialState: function() {
     return {
       item0:  {
         id: 0,
-        name: "",
+        name: "Brick1",
         preset: 0,
-        hval: 0,
-        sval: 100,
-        bval: 100,
-        image: ""
+        hval: 5,
+        sval: 79,
+        bval: 16,
+        color: "#210101",
+        image: "",
+        dsize: 0,
+        ddensity: 0,
+        csize: 0,
+        cnoise: 0,
+        status: 0,
+        tag: "QUEUE 1"
       },
       item1:  {
         id: 1,
-        name: "",
+        name: "Brick2",
         preset: 0,
-        hval: 0,
-        sval: 100,
-        bval: 100,
-        image: ""
+        hval: 5,
+        sval: 79,
+        bval: 16,
+        color: "#210101",
+        image: "",
+        dsize: 0,
+        ddensity: 0,
+        csize: 0,
+        cnoise: 0,
+        status: 0,
+        tag: "QUEUE 2"
       },
       item2:  {
         id: 2,
-        name: "",
+        name: "Brick3",
         preset: 0,
-        hval: 0,
-        sval: 100,
-        bval: 100,
-        image: ""
-      },
-      item3:  {
-        id: 3,
-        name: "",
-        preset: 0,
-        hval: 0,
-        sval: 100,
-        bval: 100,
-        image: ""
-      },
-      item4:  {
-        id: 4,
-        name: "",
-        preset: 0,
-        hval: 0,
-        sval: 100,
-        bval: 100,
-        image: ""
+        hval: 5,
+        sval: 79,
+        bval: 16,
+        color: "#210101",
+        image: "",
+        dsize: 0,
+        ddensity: 0,
+        csize: 0,
+        cnoise: 0,
+        status: 0,
+        tag: "QUEUE 3"
       },
       selected: 0
     };
@@ -57,52 +63,89 @@ var KilnComponent = React.createClass({
 
   componentDidMount: function() {
     let self = this;
-    $("#baseColorVariation").slider();
-    $("#speckleSizeVariation").slider();
-    $("#dragSizeVariation").slider();
-    $("#dragDesityVariation").slider();
-    $("#crackSizeVariation").slider();
-    $("#crackNoiseVariation").slider();
-
-    $('#baseColorSelector').ColorPicker({
-      color: '#ff0000',
-      flat: true,
-      onChange: function (hsb, hex, rgb) {
+    $("#dragSizeVariation").slider({
+      min: 1,
+      change: function(event, ui) {
         if (self.state.selected == 0) {
-          self.state.item0.hval = hsb.h;
-          self.state.item0.sval = hsb.s;
-          self.state.item0.bval = hsb.b;
+          self.state.item0.dsize = ui.value;
         } else if (self.state.selected == 1) {
-          self.state.item1.hval = hsb.h;
-          self.state.item1.sval = hsb.s;
-          self.state.item1.bval = hsb.b;
+          self.state.item1.dsize = ui.value;
         } else if (self.state.selected == 2) {
-          self.state.item2.hval = hsb.h;
-          self.state.item2.sval = hsb.s;
-          self.state.item2.bval = hsb.b;
+          self.state.item2.dsize = ui.value;
         } else if (self.state.selected == 3) {
-          self.state.item3.hval = hsb.h;
-          self.state.item3.sval = hsb.s;
-          self.state.item3.bval = hsb.b;
+          self.state.item3.dsize = ui.value;
         } else if (self.state.selected == 4) {
-          self.state.item4.hval = hsb.h;
-          self.state.item4.sval = hsb.s;
-          self.state.item4.bval = hsb.b;
+          self.state.item4.dsize = ui.value;
         }
       }
     });
-    $('#speckleColorSelector').ColorPicker({
-      color: '#ff0000',
-      flat: true,
-      onChange: function (hsb, hex, rgb) {
-        console.log(hex);
+    $("#dragDesityVariation").slider({
+      min: 1,
+      change: function(event, ui) {
+        if (self.state.selected == 0) {
+          self.state.item0.ddensity = ui.value;
+        } else if (self.state.selected == 1) {
+          self.state.item1.ddensity = ui.value;
+        } else if (self.state.selected == 2) {
+          self.state.item2.ddensity = ui.value;
+        } else if (self.state.selected == 3) {
+          self.state.item3.ddensity = ui.value;
+        } else if (self.state.selected == 4) {
+          self.state.item4.ddensity = ui.value;
+        }
       }
     });
+    $("#crackSizeVariation").slider({
+      min: 1,
+      change: function(event, ui) {
+        if (self.state.selected == 0) {
+          self.state.item0.csize = ui.value;
+        } else if (self.state.selected == 1) {
+          self.state.item1.csize = ui.value;
+        } else if (self.state.selected == 2) {
+          self.state.item2.csize = ui.value;
+        } else if (self.state.selected == 3) {
+          self.state.item3.csize = ui.value;
+        } else if (self.state.selected == 4) {
+          self.state.item4.csize = ui.value;
+        }
+      }
+    });
+    $("#crackNoiseVariation").slider({
+      min: 1,
+      change: function(event, ui) {
+        if (self.state.selected == 0) {
+          self.state.item0.cnoise = ui.value;
+        } else if (self.state.selected == 1) {
+          self.state.item1.cnoise = ui.value;
+        } else if (self.state.selected == 2) {
+          self.state.item2.cnoise = ui.value;
+        } else if (self.state.selected == 3) {
+          self.state.item3.cnoise = ui.value;
+        } else if (self.state.selected == 4) {
+          self.state.item4.cnoise = ui.value;
+        }
+      }
+    });
+
+    if (self.props.generic == 1) {
+      self.state.item0.image = "/static/images/GeometryImages-04.png";
+      self.state.item1.image = "/static/images/GeometryImages-04.png";
+      self.state.item2.image = "/static/images/GeometryImages-04.png";
+    } else if (self.props.generic == 2) {
+      self.state.item0.image = "/static/images/GeometryImages-05.png";
+      self.state.item1.image = "/static/images/GeometryImages-05.png";
+      self.state.item2.image = "/static/images/GeometryImages-05.png";
+    } else if (self.props.generic == 3) {
+      self.state.item0.image = "/static/images/GeometryImages-06.png";
+      self.state.item1.image = "/static/images/GeometryImages-06.png";
+      self.state.item2.image = "/static/images/GeometryImages-06.png";
+    }
+    self.setState({generic: self.props.generic, selected: 0});
   },
 
   componentWillReceiveProps: function(nextProps) {
     this.setState({generic: nextProps.generic});
-    console.log(this.state);
     /*
     if (nextProps.task != null && nextProps.task.length == 1) {
       this.setState({task: nextProps.task});
@@ -118,7 +161,6 @@ var KilnComponent = React.createClass({
   onChangePreset: function(item, event) {
     item.preset = event.target.value;
     this.setState({item: item});
-    console.log(this.state.item);
   },
 
   onSelect: function(id: number) {
@@ -126,8 +168,18 @@ var KilnComponent = React.createClass({
   },
 
   onBake: function(item) {
+    item.status = 1;
     console.log(item);
     let self = this;
+    item.tag = "RENDERING";
+    if (item.id == 0) {
+      self.state.item0.image = "/static/images/loading.gif";
+    } else if (item.id == 1) {
+      self.state.item1.image = "/static/images/loading.gif";
+    } else if (item.id == 2) {
+      self.state.item2.image = "/static/images/loading.gif";
+    }
+    self.setState({selected: self.state.selected});
     $.ajax({
       url: "/task/" + item.id,
       type: 'PUT',
@@ -138,10 +190,23 @@ var KilnComponent = React.createClass({
         hval: item.hval,
         sval: item.sval,
         bval: item.bval,
+        dsize: item.dsize,
+        ddensity: item.ddensity,
+        csize: item.csize,
+        cnoise: item.cnoise,
+        generic: self.state.generic,
       }),
       dataType: "json",
       success: function(data) {
         item.image = data.filename;
+        item.status = 0;
+        if (item.id == 0) {
+          self.state.item0.tag = "QUEUE 1";
+        } else if (item.id == 1) {
+          self.state.item1.tag = "QUEUE 2";
+        } else if (item.id == 2) {
+          self.state.item2.tag = "QUEUE 3";
+        }
         self.setState({selected: self.state.selected});
       }.bind(this),
       error: function(xhr, status, err) {
@@ -154,512 +219,516 @@ var KilnComponent = React.createClass({
     let self = this;
     var time = new Date().getTime();
     if (self.state.selected == 0) {
-      return (
-        <div className={styles.wrapper}>
-          <div className={styles.leftPanel}>
-            <input className={styles.inputBrickName} type="text" key={self.state.item0.id} placeholder="Name your brick" value={self.state.item0.name} onChange={(event)=> {self.onChangeName(self.state.item0, event)}} />
-            <select className={styles.inputPreset} onChange={(event)=> {self.onChangePreset(self.state.item0, event)}}>
-              <option value="0">Choose from an existing brick</option>
-              <option value="1">Standard Red Brick</option>
-              <option value="2">Standard Green Brick</option>
-              <option value="3">The Mason Special</option>
-            </select>
-            <div className={styles.dimension}>
-              <input className={styles.inputBrickName} type="text" placeholder="Width (cm)" />
-              <input className={styles.inputBrickName} type="text" placeholder="Height (cm)" />
-              <input className={styles.inputBrickName} type="text" placeholder="Length (cm)" />
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Base Color:
+      $("#dragSizeVariation").slider('value', self.state.item0.dsize);
+      $("#dragDesityVariation").slider('value', self.state.item0.ddensity);
+      $("#crackSizeVariation").slider('value', self.state.item0.csize);
+      $("#crackNoiseVariation").slider('value', self.state.item0.cnoise);
+      if (self.state.item0.status == 0) {
+        return (
+          <div className={styles.wrapper}>
+            <div className={styles.leftPanel}>
+              <div className={styles.inputBrickName}>
+                Rendering Queue 1 Setup
               </div>
-              <div id="baseColorSelector" className={styles.picker}></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Base Color Variation:
-              </div>
-              <div id="baseColorVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Speckle Color:
-              </div>
-              <div id="speckleColorSelector" className={styles.picker}></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Speckle Size Variation:
-              </div>
-              <div id="speckleSizeVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Drag Mark Size Variation:
-              </div>
-              <div id="dragSizeVariation"></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Drag Mark Density Variation:
-              </div>
-              <div id="dragDesityVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Crack Size Variation:
-              </div>
-              <div id="crackSizeVariation"></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Crack Noise Variation:
-              </div>
-              <div id="crackNoiseVariation"></div>
-            </div>
-
-          </div>
-          <div className={styles.rightPanel}>
-            <div className={styles.resultPanel}>
-              <div className={styles.thumbnail_image} >
-                <img src={self.state.item0.image + "?ver=" + time}/>
-              </div>
-              <div className={styles.button} onClick={()=> {self.onBake(self.state.item0);}}>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Base Color:
+                </div>
                 <div>
-                  fire me up
+                  <ColorPickerPanel color={self.state.item0.color} onChange={(obj)=> {
+                    self.state.item0.color = obj.color;
+                    self.state.item0.hval = parseFloat(obj.hsv.h);
+                    self.state.item0.sval = parseFloat(obj.hsv.s);
+                    self.state.item0.bval = parseFloat(obj.hsv.v);
+                  }} mode="HSL"/>
+                </div>
+              </div>
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Size Variation:
+                </div>
+                <div id="dragSizeVariation"></div>
+              </div>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Density Variation:
+                </div>
+                <div id="dragDesityVariation"></div>
+              </div>
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Size Variation:
+                </div>
+                <div id="crackSizeVariation"></div>
+              </div>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Noise Variation:
+                </div>
+                <div id="crackNoiseVariation"></div>
+              </div>
+              <hr className={styles.hr} />
+            </div>
+            <div className={styles.rightPanel}>
+              <div className={styles.slider2}>
+                <div className={styles.inputBrickName}>
+                  Rendering Queue 1 Result
+                </div>
+              </div>
+              <div className={styles.resultPanel}>
+                <div className={styles.thumbnail_image} >
+                  <img src={self.state.item0.image + "?ver=" + time}/>
+                </div>
+                <div className={styles.button} onClick={()=> {
+                  if (self.state.item0.status == 0) {
+                    self.onBake(self.state.item0);
+                  }
+                }}>
+                  <div>
+                    fire me up
+                  </div>
+                </div>
+              </div>
+              <div className={styles.queuePanel}>
+                <div id="queue1" className={styles.selected} onClick={()=> {self.onSelect(0);}}>
+                  {self.state.item0.tag}
+                </div>
+                <div id="queue2" onClick={()=> {self.onSelect(1);}}>
+                  {self.state.item1.tag}
+                </div>
+                <div id="queue3" onClick={()=> {self.onSelect(2);}}>
+                  {self.state.item2.tag}
                 </div>
               </div>
             </div>
-            <div className={styles.queuePanel}>
-              <div id="queue1" className={styles.selected} onClick={()=> {self.onSelect(0);}}>
-                READY
+          </div>
+        );
+      } else {
+        return (
+          <div className={styles.wrapper}>
+            <div className={styles.leftPanel}>
+              <div className={styles.inputBrickName}>
+                Rendering Queue 1 Setup
               </div>
-              <div id="queue2" onClick={()=> {self.onSelect(1);}}>
-                READY
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Base Color:
+                </div>
+                <div>
+                  <ColorPickerPanel color={self.state.item0.color} onChange={(obj)=> {
+                    self.state.item0.color = obj.color;
+                    self.state.item0.hval = parseFloat(obj.hsv.h);
+                    self.state.item0.sval = parseFloat(obj.hsv.s);
+                    self.state.item0.bval = parseFloat(obj.hsv.v);
+                  }} mode="HSL"/>
+                </div>
               </div>
-              <div id="queue3" onClick={()=> {self.onSelect(2);}}>
-                READY
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Size Variation:
+                </div>
+                <div id="dragSizeVariation"></div>
               </div>
-              <div id="queue4" onClick={()=> {self.onSelect(3);}}>
-                READY
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Density Variation:
+                </div>
+                <div id="dragDesityVariation"></div>
               </div>
-              <div id="queue5" onClick={()=> {self.onSelect(4);}}>
-                READY
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Size Variation:
+                </div>
+                <div id="crackSizeVariation"></div>
+              </div>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Noise Variation:
+                </div>
+                <div id="crackNoiseVariation"></div>
+              </div>
+              <hr className={styles.hr} />
+            </div>
+            <div className={styles.rightPanel}>
+              <div className={styles.slider2}>
+                <div className={styles.inputBrickName}>
+                  Rendering Queue 1 Result
+                </div>
+              </div>
+              <div className={styles.resultPanel}>
+                <div className={styles.thumbnail_image} >
+                  <img src={self.state.item0.image + "?ver=" + time}/>
+                </div>
+                <div className={styles.button} onClick={()=> {
+                  if (self.state.item0.status == 0) {
+                    self.onBake(self.state.item0);
+                  }
+                }}>
+                  <div>
+                    Firing...
+                  </div>
+                </div>
+              </div>
+              <div className={styles.queuePanel}>
+                <div id="queue1" className={styles.selected} onClick={()=> {self.onSelect(0);}}>
+                  {self.state.item0.tag}
+                </div>
+                <div id="queue2" onClick={()=> {self.onSelect(1);}}>
+                  {self.state.item1.tag}
+                </div>
+                <div id="queue3" onClick={()=> {self.onSelect(2);}}>
+                  {self.state.item2.tag}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      }
     } else if (self.state.selected == 1) {
-      return (
-        <div className={styles.wrapper}>
-          <div className={styles.leftPanel}>
-            <input className={styles.inputBrickName} type="text" key={self.state.item1.id} placeholder="Name your brick" value={self.state.item1.name} onChange={(event)=> {self.onChangeName(self.state.item1, event)}} />
-            <select className={styles.inputPreset} onChange={(event)=> {self.onChangePreset(self.state.item1, event)}}>
-              <option value="0">Choose from an existing brick</option>
-              <option value="1">Standard Red Brick</option>
-              <option value="2">Standard Green Brick</option>
-              <option value="3">The Mason Special</option>
-            </select>
-            <div className={styles.dimension}>
-              <input className={styles.inputBrickName} type="text" placeholder="Width (cm)" />
-              <input className={styles.inputBrickName} type="text" placeholder="Height (cm)" />
-              <input className={styles.inputBrickName} type="text" placeholder="Length (cm)" />
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Base Color:
+      $("#dragSizeVariation").slider('value', self.state.item1.dsize);
+      $("#dragDesityVariation").slider('value', self.state.item1.ddensity);
+      $("#crackSizeVariation").slider('value', self.state.item1.csize);
+      $("#crackNoiseVariation").slider('value', self.state.item1.cnoise);
+      if (self.state.item1.status == 0) {
+        return (
+          <div className={styles.wrapper}>
+            <div className={styles.leftPanel}>
+              <div className={styles.inputBrickName}>
+                Rendering Queue 2 Setup
               </div>
-              <div id="baseColorSelector" className={styles.picker}></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Base Color Variation:
-              </div>
-              <div id="baseColorVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Speckle Color:
-              </div>
-              <div id="speckleColorSelector" className={styles.picker}></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Speckle Size Variation:
-              </div>
-              <div id="speckleSizeVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Drag Mark Size Variation:
-              </div>
-              <div id="dragSizeVariation"></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Drag Mark Density Variation:
-              </div>
-              <div id="dragDesityVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Crack Size Variation:
-              </div>
-              <div id="crackSizeVariation"></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Crack Noise Variation:
-              </div>
-              <div id="crackNoiseVariation"></div>
-            </div>
-
-          </div>
-          <div className={styles.rightPanel}>
-            <div className={styles.resultPanel}>
-              <div className={styles.thumbnail_image} >
-                <img src={self.state.item1.image + "?ver=" + time}/>
-              </div>
-              <div className={styles.button} onClick={()=> {self.onBake(self.state.item1);}}>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Base Color:
+                </div>
                 <div>
-                  fire me up
+                  <ColorPickerPanel color={self.state.item1.color} onChange={(obj)=> {
+                    self.state.item1.color = obj.color;
+                    self.state.item1.hval = parseFloat(obj.hsv.h);
+                    self.state.item1.sval = parseFloat(obj.hsv.s);
+                    self.state.item1.bval = parseFloat(obj.hsv.v);
+                  }} mode="HSL"/>
+                </div>
+              </div>
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Size Variation:
+                </div>
+                <div id="dragSizeVariation"></div>
+              </div>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Density Variation:
+                </div>
+                <div id="dragDesityVariation"></div>
+              </div>
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Size Variation:
+                </div>
+                <div id="crackSizeVariation"></div>
+              </div>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Noise Variation:
+                </div>
+                <div id="crackNoiseVariation"></div>
+              </div>
+              <hr className={styles.hr} />
+            </div>
+            <div className={styles.rightPanel}>
+              <div className={styles.slider2}>
+                <div className={styles.inputBrickName}>
+                  Rendering Queue 2 Result
+                </div>
+              </div>
+              <div className={styles.resultPanel}>
+                <div className={styles.thumbnail_image} >
+                  <img src={self.state.item1.image + "?ver=" + time}/>
+                </div>
+                <div className={styles.button} onClick={()=> {
+                  if (self.state.item1.status == 0) {
+                    self.onBake(self.state.item1);
+                  }
+                }}>
+                  <div>
+                    fire me up
+                  </div>
+                </div>
+              </div>
+              <div className={styles.queuePanel}>
+                <div id="queue1" onClick={()=> {self.onSelect(0);}}>
+                  {self.state.item0.tag}
+                </div>
+                <div id="queue2" className={styles.selected} onClick={()=> {self.onSelect(1);}}>
+                  {self.state.item1.tag}
+                </div>
+                <div id="queue3" onClick={()=> {self.onSelect(2);}}>
+                  {self.state.item2.tag}
                 </div>
               </div>
             </div>
-            <div className={styles.queuePanel}>
-              <div id="queue1" onClick={()=> {self.onSelect(0);}}>
-                READY
+          </div>
+        );
+      } else {
+        return (
+          <div className={styles.wrapper}>
+            <div className={styles.leftPanel}>
+              <div className={styles.inputBrickName}>
+                Rendering Queue 2 Setup
               </div>
-              <div id="queue2" className={styles.selected} onClick={()=> {self.onSelect(1);}}>
-                READY
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Base Color:
+                </div>
+                <div>
+                  <ColorPickerPanel color={self.state.item1.color} onChange={(obj)=> {
+                    self.state.item1.color = obj.color;
+                    self.state.item1.hval = parseFloat(obj.hsv.h);
+                    self.state.item1.sval = parseFloat(obj.hsv.s);
+                    self.state.item1.bval = parseFloat(obj.hsv.v);
+                  }} mode="HSL"/>
+                </div>
               </div>
-              <div id="queue3" onClick={()=> {self.onSelect(2);}}>
-                READY
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Size Variation:
+                </div>
+                <div id="dragSizeVariation"></div>
               </div>
-              <div id="queue4" onClick={()=> {self.onSelect(3);}}>
-                READY
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Density Variation:
+                </div>
+                <div id="dragDesityVariation"></div>
               </div>
-              <div id="queue5" onClick={()=> {self.onSelect(4);}}>
-                READY
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Size Variation:
+                </div>
+                <div id="crackSizeVariation"></div>
+              </div>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Noise Variation:
+                </div>
+                <div id="crackNoiseVariation"></div>
+              </div>
+              <hr className={styles.hr} />
+            </div>
+            <div className={styles.rightPanel}>
+              <div className={styles.slider2}>
+                <div className={styles.inputBrickName}>
+                  Rendering Queue 2 Result
+                </div>
+              </div>
+              <div className={styles.resultPanel}>
+                <div className={styles.thumbnail_image} >
+                  <img src={self.state.item1.image + "?ver=" + time}/>
+                </div>
+                <div className={styles.button} onClick={()=> {
+                  if (self.state.item1.status == 0) {
+                    self.onBake(self.state.item1);
+                  }
+                }}>
+                  <div>
+                    Firing...
+                  </div>
+                </div>
+              </div>
+              <div className={styles.queuePanel}>
+                <div id="queue1" onClick={()=> {self.onSelect(0);}}>
+                  {self.state.item0.tag}
+                </div>
+                <div id="queue2" className={styles.selected} onClick={()=> {self.onSelect(1);}}>
+                  {self.state.item1.tag}
+                </div>
+                <div id="queue3" onClick={()=> {self.onSelect(2);}}>
+                  {self.state.item2.tag}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      }
     } else if (self.state.selected == 2) {
-      return (
-        <div className={styles.wrapper}>
-          <div className={styles.leftPanel}>
-            <input className={styles.inputBrickName} type="text" key={self.state.item2.id} placeholder="Name your brick" value={self.state.item2.name} onChange={(event)=> {self.onChangeName(self.state.item2, event)}} />
-            <select className={styles.inputPreset} onChange={(event)=> {self.onChangePreset(self.state.item2, event)}}>
-              <option value="0">Choose from an existing brick</option>
-              <option value="1">Standard Red Brick</option>
-              <option value="2">Standard Green Brick</option>
-              <option value="3">The Mason Special</option>
-            </select>
-            <div className={styles.dimension}>
-              <input className={styles.inputBrickName} type="text" placeholder="Width (cm)" />
-              <input className={styles.inputBrickName} type="text" placeholder="Height (cm)" />
-              <input className={styles.inputBrickName} type="text" placeholder="Length (cm)" />
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Base Color:
+      $("#dragSizeVariation").slider('value', self.state.item2.dsize);
+      $("#dragDesityVariation").slider('value', self.state.item2.ddensity);
+      $("#crackSizeVariation").slider('value', self.state.item2.csize);
+      $("#crackNoiseVariation").slider('value', self.state.item2.cnoise);
+      if (self.state.item2.status == 0) {
+        return (
+          <div className={styles.wrapper}>
+            <div className={styles.leftPanel}>
+              <div className={styles.inputBrickName}>
+                Rendering Queue 3 Setup
               </div>
-              <div id="baseColorSelector" className={styles.picker}></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Base Color Variation:
-              </div>
-              <div id="baseColorVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Speckle Color:
-              </div>
-              <div id="speckleColorSelector" className={styles.picker}></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Speckle Size Variation:
-              </div>
-              <div id="speckleSizeVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Drag Mark Size Variation:
-              </div>
-              <div id="dragSizeVariation"></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Drag Mark Density Variation:
-              </div>
-              <div id="dragDesityVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Crack Size Variation:
-              </div>
-              <div id="crackSizeVariation"></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Crack Noise Variation:
-              </div>
-              <div id="crackNoiseVariation"></div>
-            </div>
-
-          </div>
-          <div className={styles.rightPanel}>
-            <div className={styles.resultPanel}>
-              <div className={styles.thumbnail_image} >
-                <img src={self.state.item2.image + "?ver=" + time}/>
-              </div>
-              <div className={styles.button} onClick={()=> {self.onBake(self.state.item2);}}>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Base Color:
+                </div>
                 <div>
-                  fire me up
+                  <ColorPickerPanel color={self.state.item1.color} onChange={(obj)=> {
+                    self.state.item2.color = obj.color;
+                    self.state.item2.hval = parseFloat(obj.hsv.h);
+                    self.state.item2.sval = parseFloat(obj.hsv.s);
+                    self.state.item2.bval = parseFloat(obj.hsv.v);
+                  }} mode="HSL"/>
+                </div>
+              </div>
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Size Variation:
+                </div>
+                <div id="dragSizeVariation"></div>
+              </div>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Density Variation:
+                </div>
+                <div id="dragDesityVariation"></div>
+              </div>
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Size Variation:
+                </div>
+                <div id="crackSizeVariation"></div>
+              </div>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Noise Variation:
+                </div>
+                <div id="crackNoiseVariation"></div>
+              </div>
+              <hr className={styles.hr} />
+            </div>
+            <div className={styles.rightPanel}>
+              <div className={styles.slider2}>
+                <div className={styles.inputBrickName}>
+                  Rendering Queue 3 Result
+                </div>
+              </div>
+              <div className={styles.resultPanel}>
+                <div className={styles.thumbnail_image} >
+                  <img src={self.state.item2.image + "?ver=" + time}/>
+                </div>
+                <div className={styles.button} onClick={()=> {
+                  if (self.state.item2.status == 0) {
+                    self.onBake(self.state.item2);
+                  }
+                }}>
+                  <div>
+                    fire me up
+                  </div>
+                </div>
+              </div>
+              <div className={styles.queuePanel}>
+                <div id="queue1" onClick={()=> {self.onSelect(0);}}>
+                  {self.state.item0.tag}
+                </div>
+                <div id="queue2" onClick={()=> {self.onSelect(1);}}>
+                  {self.state.item1.tag}
+                </div>
+                <div id="queue3" className={styles.selected} onClick={()=> {self.onSelect(2);}}>
+                  {self.state.item2.tag}
                 </div>
               </div>
             </div>
-            <div className={styles.queuePanel}>
-              <div id="queue1" onClick={()=> {self.onSelect(0);}}>
-                READY
-              </div>
-              <div id="queue2" onClick={()=> {self.onSelect(1);}}>
-                READY
-              </div>
-              <div id="queue3" className={styles.selected} onClick={()=> {self.onSelect(2);}}>
-                READY
-              </div>
-              <div id="queue4" onClick={()=> {self.onSelect(3);}}>
-                READY
-              </div>
-              <div id="queue5" onClick={()=> {self.onSelect(4);}}>
-                READY
-              </div>
-            </div>
           </div>
-        </div>
-      );
-    } else if (self.state.selected == 3) {
-      return (
-        <div className={styles.wrapper}>
-          <div className={styles.leftPanel}>
-            <input className={styles.inputBrickName} type="text" key={self.state.item3.id} placeholder="Name your brick" value={self.state.item3.name} onChange={(event)=> {self.onChangeName(self.state.item3, event)}} />
-            <select className={styles.inputPreset} onChange={(event)=> {self.onChangePreset(self.state.item3, event)}}>
-              <option value="0">Choose from an existing brick</option>
-              <option value="1">Standard Red Brick</option>
-              <option value="2">Standard Green Brick</option>
-              <option value="3">The Mason Special</option>
-            </select>
-            <div className={styles.dimension}>
-              <input className={styles.inputBrickName} type="text" placeholder="Width (cm)" />
-              <input className={styles.inputBrickName} type="text" placeholder="Height (cm)" />
-              <input className={styles.inputBrickName} type="text" placeholder="Length (cm)" />
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Base Color:
+        );
+      } else {
+        return (
+          <div className={styles.wrapper}>
+            <div className={styles.leftPanel}>
+              <div className={styles.inputBrickName}>
+                Rendering Queue 3 Setup
               </div>
-              <div id="baseColorSelector" className={styles.picker}></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Base Color Variation:
-              </div>
-              <div id="baseColorVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Speckle Color:
-              </div>
-              <div id="speckleColorSelector" className={styles.picker}></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Speckle Size Variation:
-              </div>
-              <div id="speckleSizeVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Drag Mark Size Variation:
-              </div>
-              <div id="dragSizeVariation"></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Drag Mark Density Variation:
-              </div>
-              <div id="dragDesityVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Crack Size Variation:
-              </div>
-              <div id="crackSizeVariation"></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Crack Noise Variation:
-              </div>
-              <div id="crackNoiseVariation"></div>
-            </div>
-
-          </div>
-          <div className={styles.rightPanel}>
-            <div className={styles.resultPanel}>
-              <div className={styles.thumbnail_image} >
-                <img src={self.state.item3.image + "?ver=" + time}/>
-              </div>
-              <div className={styles.button} onClick={()=> {self.onBake(self.state.item3);}}>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Base Color:
+                </div>
                 <div>
-                  fire me up
+                  <ColorPickerPanel color={self.state.item1.color} onChange={(obj)=> {
+                    self.state.item2.color = obj.color;
+                    self.state.item2.hval = parseFloat(obj.hsv.h);
+                    self.state.item2.sval = parseFloat(obj.hsv.s);
+                    self.state.item2.bval = parseFloat(obj.hsv.v);
+                  }} mode="HSL"/>
+                </div>
+              </div>
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Size Variation:
+                </div>
+                <div id="dragSizeVariation"></div>
+              </div>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Drag Mark Density Variation:
+                </div>
+                <div id="dragDesityVariation"></div>
+              </div>
+              <hr className={styles.hr} />
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Size Variation:
+                </div>
+                <div id="crackSizeVariation"></div>
+              </div>
+              <div className={styles.slider}>
+                <div className={styles.sliderText}>
+                  Crack Noise Variation:
+                </div>
+                <div id="crackNoiseVariation"></div>
+              </div>
+              <hr className={styles.hr} />
+            </div>
+            <div className={styles.rightPanel}>
+              <div className={styles.slider2}>
+                <div className={styles.inputBrickName}>
+                  Rendering Queue 2 Result
+                </div>
+              </div>
+              <div className={styles.resultPanel}>
+                <div className={styles.thumbnail_image} >
+                  <img src={self.state.item2.image + "?ver=" + time}/>
+                </div>
+                <div className={styles.button} onClick={()=> {
+                  if (self.state.item2.status == 0) {
+                    self.onBake(self.state.item2);
+                  }
+                }}>
+                  <div>
+                    Firing...
+                  </div>
+                </div>
+              </div>
+              <div className={styles.queuePanel}>
+                <div id="queue1" onClick={()=> {self.onSelect(0);}}>
+                  {self.state.item0.tag}
+                </div>
+                <div id="queue2" onClick={()=> {self.onSelect(1);}}>
+                  {self.state.item1.tag}
+                </div>
+                <div id="queue3" className={styles.selected} onClick={()=> {self.onSelect(2);}}>
+                  {self.state.item2.tag}
                 </div>
               </div>
             </div>
-            <div className={styles.queuePanel}>
-              <div id="queue1" onClick={()=> {self.onSelect(0);}}>
-                READY
-              </div>
-              <div id="queue2" onClick={()=> {self.onSelect(1);}}>
-                READY
-              </div>
-              <div id="queue3" onClick={()=> {self.onSelect(2);}}>
-                READY
-              </div>
-              <div id="queue4" className={styles.selected} onClick={()=> {self.onSelect(3);}}>
-                READY
-              </div>
-              <div id="queue5" onClick={()=> {self.onSelect(4);}}>
-                READY
-              </div>
-            </div>
           </div>
-        </div>
-      );
-    } else if (self.state.selected == 4) {
-      return (
-        <div className={styles.wrapper}>
-          <div className={styles.leftPanel}>
-            <input className={styles.inputBrickName} type="text" key={self.state.item4.id} placeholder="Name your brick" value={self.state.item4.name} onChange={(event)=> {self.onChangeName(self.state.item4, event)}} />
-            <select className={styles.inputPreset} onChange={(event)=> {self.onChangePreset(self.state.item4, event)}}>
-              <option value="0">Choose from an existing brick</option>
-              <option value="1">Standard Red Brick</option>
-              <option value="2">Standard Green Brick</option>
-              <option value="3">The Mason Special</option>
-            </select>
-            <div className={styles.dimension}>
-              <input className={styles.inputBrickName} type="text" placeholder="Width (cm)" />
-              <input className={styles.inputBrickName} type="text" placeholder="Height (cm)" />
-              <input className={styles.inputBrickName} type="text" placeholder="Length (cm)" />
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Base Color:
-              </div>
-              <div id="baseColorSelector" className={styles.picker}></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Base Color Variation:
-              </div>
-              <div id="baseColorVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Speckle Color:
-              </div>
-              <div id="speckleColorSelector" className={styles.picker}></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Speckle Size Variation:
-              </div>
-              <div id="speckleSizeVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Drag Mark Size Variation:
-              </div>
-              <div id="dragSizeVariation"></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Drag Mark Density Variation:
-              </div>
-              <div id="dragDesityVariation"></div>
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Crack Size Variation:
-              </div>
-              <div id="crackSizeVariation"></div>
-            </div>
-            <div className={styles.slider}>
-              <div className={styles.sliderText}>
-                Crack Noise Variation:
-              </div>
-              <div id="crackNoiseVariation"></div>
-            </div>
-
-          </div>
-          <div className={styles.rightPanel}>
-            <div className={styles.resultPanel}>
-              <div className={styles.thumbnail_image} >
-                <img src={self.state.item4.image + "?ver=" + time}/>
-              </div>
-              <div className={styles.button} onClick={()=> {self.onBake(self.state.item4);}}>
-                <div>
-                  fire me up
-                </div>
-              </div>
-            </div>
-            <div className={styles.queuePanel}>
-              <div id="queue1" onClick={()=> {self.onSelect(0);}}>
-                READY
-              </div>
-              <div id="queue2" onClick={()=> {self.onSelect(1);}}>
-                READY
-              </div>
-              <div id="queue3" onClick={()=> {self.onSelect(2);}}>
-                READY
-              </div>
-              <div id="queue4" onClick={()=> {self.onSelect(3);}}>
-                READY
-              </div>
-              <div id="queue5" className={styles.selected} onClick={()=> {self.onSelect(4);}}>
-                READY
-              </div>
-            </div>
-          </div>
-        </div>
-      );
+        );
+      }
     }
-
   }
 });
 

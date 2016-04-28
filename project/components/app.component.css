@@ -38,11 +38,11 @@
     letter-spacing: 2px;
     font-size: small;
     background-color: rgb(242, 242, 242);
-    -webkit-flex-grow: 1;
-    flex-grow: 1;
+
   }
   :local(.copyright div) {
     margin: auto;
+    padding-bottom: 4px;
   }
   :local(nav) {
     padding: 0 2px;

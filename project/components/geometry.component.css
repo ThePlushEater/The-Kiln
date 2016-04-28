@@ -1,7 +1,7 @@
 @media all {
   :local(.wrapper) {
     width: 100%;
-    height: 82.5%;
+    height: 90%;
     color: rgba(0, 0, 0, 1);
   }
   :local(.geolist) {
@@ -12,9 +12,11 @@
     display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
     -webkit-flex-grow: 1;
     flex-grow: 1;
-    height: 80%;
+    height: 85%;
     padding: 5%;
     background-color: rgb(242, 242, 242);
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
   }
 
   :local(.geolist div) {
@@ -22,6 +24,7 @@
     flex-grow: 1;
     height: 100%;
     margin: 24px;
+    cursor: pointer;
   }
 
   :local(.button) {
@@ -30,13 +33,20 @@
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-    height: 20%;
+    height: 15%;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
     background-color: rgb(242, 242, 242);
   }
   :local(.button div) {
-    padding: 30px 35px 30px 35px;
+    padding: 16px 24px 16px 24px;
     border: solid rgba(0, 0, 0, 1) 2px;
     margin: auto;
+    cursor: pointer;
+  }
+  :local(.button  div:hover) {
+    color: rgb(242, 242, 242);
+    background-color: #333333;
   }
 
   :local(.generic1) {
@@ -74,5 +84,19 @@
   :local(.generic3_selected) {
     background: url(/static/images/GeometryImages-03.png) no-repeat center center;
     background-size: contain;
+  }
+}
+
+
+@media only screen and (orientation: portrait) {
+  :local(.geolist) {
+    display: block !important;
+    overflow-y: auto;
+  }
+  :local(.geolist div) {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    height: 40%;
+    cursor: pointer;
   }
 }

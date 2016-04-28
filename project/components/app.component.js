@@ -14,6 +14,9 @@ let AppComponent = React.createClass({
   componentDidMount: function() {
 
   },
+  selectGeometry: function() {
+
+  },
 
   routeToKiln(id: number) {
     this.setState({page: 1, selected: id});
@@ -28,7 +31,7 @@ let AppComponent = React.createClass({
       return (
         <div className={styles.wrapper}>
           <NavComponent onClick={self.routeToGeometry} />
-          <GeometryComponent onClick={self.routeToKiln} />
+          <GeometryComponent onClick={self.routeToKiln} onSelect={self.selectGeometry} />
           <div className={styles.copyright}><div>© 2016 Dr. Gentry Corporation</div></div>
         </div>
       );
