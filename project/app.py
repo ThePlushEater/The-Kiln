@@ -1,9 +1,20 @@
+blender = "C:/Program Files/Blender Foundation/Blender/blender.exe"
+
+
+
+
+
+
+
+
+
 from flask import Flask, render_template, jsonify, abort, make_response, url_for, request
 from jinja2 import TemplateNotFound
 from tasks import Tasks
 from features import Features
 from options import Options
 import subprocess
+
 
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
@@ -202,7 +213,7 @@ def render2(request):
     cnoise = str(request.json['cnoise'])
 
     #app.logger.warning(generic)
-    blender = 'C:/Program Files/Blender Foundation/Blender/blender.exe'
+
     blend = url_for('static', filename='blender/masonry1.blend')
 
     #file = '-b project/static/blender/brick3.blend -P project/progress.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 '
