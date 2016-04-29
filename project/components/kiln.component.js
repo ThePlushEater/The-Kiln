@@ -129,17 +129,17 @@ var KilnComponent = React.createClass({
     });
 
     if (self.props.generic == 1) {
-      self.state.item0.image = "/static/images/GeometryImages-04.png";
-      self.state.item1.image = "/static/images/GeometryImages-04.png";
-      self.state.item2.image = "/static/images/GeometryImages-04.png";
+      self.state.item0.image = "/static/images/GeometryImages-07.png";
+      self.state.item1.image = "/static/images/GeometryImages-07.png";
+      self.state.item2.image = "/static/images/GeometryImages-07.png";
     } else if (self.props.generic == 2) {
-      self.state.item0.image = "/static/images/GeometryImages-05.png";
-      self.state.item1.image = "/static/images/GeometryImages-05.png";
-      self.state.item2.image = "/static/images/GeometryImages-05.png";
+      self.state.item0.image = "/static/images/GeometryImages-08.png";
+      self.state.item1.image = "/static/images/GeometryImages-08.png";
+      self.state.item2.image = "/static/images/GeometryImages-08.png";
     } else if (self.props.generic == 3) {
-      self.state.item0.image = "/static/images/GeometryImages-06.png";
-      self.state.item1.image = "/static/images/GeometryImages-06.png";
-      self.state.item2.image = "/static/images/GeometryImages-06.png";
+      self.state.item0.image = "/static/images/GeometryImages-09.png";
+      self.state.item1.image = "/static/images/GeometryImages-09.png";
+      self.state.item2.image = "/static/images/GeometryImages-09.png";
     }
     self.setState({generic: self.props.generic, selected: 0});
   },
