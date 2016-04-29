@@ -90,7 +90,11 @@
 	  selectGeometry: function selectGeometry() {},
 	
 	  routeToKiln: function routeToKiln(id) {
-	    this.setState({ page: 1, selected: id });
+	    if (id == 0) {
+	      alert("Please select a type of rendering.");
+	    } else {
+	      this.setState({ page: 1, selected: id });
+	    }
 	  },
 	  routeToGeometry: function routeToGeometry() {
 	    this.setState({ page: 0, selected: 0 });
@@ -31750,7 +31754,8 @@
 	  componentDidMount: function componentDidMount() {
 	    var self = this;
 	    $("#dragSizeVariation").slider({
-	      min: 1,
+	      min: 0,
+	      max: 200,
 	      change: function change(event, ui) {
 	        if (self.state.selected == 0) {
 	          self.state.item0.dsize = ui.value;
@@ -31766,7 +31771,8 @@
 	      }
 	    });
 	    $("#dragDesityVariation").slider({
-	      min: 1,
+	      min: 0,
+	      max: 200,
 	      change: function change(event, ui) {
 	        if (self.state.selected == 0) {
 	          self.state.item0.ddensity = ui.value;
@@ -31782,7 +31788,8 @@
 	      }
 	    });
 	    $("#crackSizeVariation").slider({
-	      min: 1,
+	      min: 0,
+	      max: 200,
 	      change: function change(event, ui) {
 	        if (self.state.selected == 0) {
 	          self.state.item0.csize = ui.value;
@@ -31798,7 +31805,8 @@
 	      }
 	    });
 	    $("#crackNoiseVariation").slider({
-	      min: 1,
+	      min: 0,
+	      max: 200,
 	      change: function change(event, ui) {
 	        if (self.state.selected == 0) {
 	          self.state.item0.cnoise = ui.value;

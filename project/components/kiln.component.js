@@ -64,7 +64,8 @@ var KilnComponent = React.createClass({
   componentDidMount: function() {
     let self = this;
     $("#dragSizeVariation").slider({
-      min: 1,
+      min: 0,
+      max: 200,
       change: function(event, ui) {
         if (self.state.selected == 0) {
           self.state.item0.dsize = ui.value;
@@ -80,7 +81,8 @@ var KilnComponent = React.createClass({
       }
     });
     $("#dragDesityVariation").slider({
-      min: 1,
+      min: 0,
+      max: 200,
       change: function(event, ui) {
         if (self.state.selected == 0) {
           self.state.item0.ddensity = ui.value;
@@ -96,7 +98,8 @@ var KilnComponent = React.createClass({
       }
     });
     $("#crackSizeVariation").slider({
-      min: 1,
+      min: 0,
+      max: 200,
       change: function(event, ui) {
         if (self.state.selected == 0) {
           self.state.item0.csize = ui.value;
@@ -112,7 +115,8 @@ var KilnComponent = React.createClass({
       }
     });
     $("#crackNoiseVariation").slider({
-      min: 1,
+      min: 0,
+      max: 200,
       change: function(event, ui) {
         if (self.state.selected == 0) {
           self.state.item0.cnoise = ui.value;

@@ -19,7 +19,11 @@ let AppComponent = React.createClass({
   },
 
   routeToKiln(id: number) {
-    this.setState({page: 1, selected: id});
+    if (id == 0) {
+      alert("Please select a type of rendering.");
+    } else {
+      this.setState({page: 1, selected: id});
+    }
   },
   routeToGeometry() {
     this.setState({page: 0, selected: 0});
