@@ -34,7 +34,7 @@ _*{} is variable that can be different based on your environment._
 
 4. Download or clone the Masonry package from https://github.com/captainwhale52/ Masonry, and extract any desired location on your machine.
 
-5. Open [PROJECT_DIR]/project/app.py file with any text editor. In line #1, put / change the location of Blender executable file. 
+5. Open {app-root-folder}/project/app.py file with any text editor. In line #1, put / change the location of Blender executable file. 
 Ex> blender = "C:/Program Files/Blender Foundation/Blender/blender.exe" (default location of Blender executable file for windows).
 
 6. Open command prompt or terminal, and check some command lines to check whether dependency libraries are installed correctly. If it shows an error message, go back to previous step and re-install libraries.
@@ -53,3 +53,87 @@ Ex> blender = "C:/Program Files/Blender Foundation/Blender/blender.exe" (default
 10. Even the server that we setup is for local server, you can still open the hotspot of your machine so that other devices within a range of Wi-Fi can access the application. Once you open the hotspot of your machine, open command prompt or terminal, and execute “ipconfig”. This command will show the list of IPs that your machine is using. Usually local server address starts from “192.168.*.*”. After finding the address, type the address + port number 8000, Ex> 192.168.173.1:8000 into the browser of a connected device.
 
 ## Architecture of the Application
+Following image is the software architecture of the Masonry application. Understanding this architecture will be helpful to edit or develop the program as your own purpose.
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/system-diagram.png)
+
+## Texture Generation Algorithm
+### Blender Command Line Execution
+Blender command line execution requires a few parameters, such as blender file name, python file name to link a server with the Blender, and parameters.
+If you open {app-root-directory}/project/app.py file, and go to line 221, you will see below code.
+
+```“-b project/static/blender/masonry1.blend -P project/static/blender/masonry.py -o //../render/' + filename + '_#.PNG -x 1 -f 1 -- -hsv_h ' + hue + ' -hsv_s ' + saturation + ' -hsv_v ' + value + ' -d_size ' + dsize + ' -d_density ' + ddensity + ' -c_size ' + csize + ' -c_noise ' + cnoise”```
+
+1. -b blender file name to render
+2. -P python file name to pass parameter values to Blender
+3. -- specific parameters set of (-parameter name parameter value)
+
+You can change or add parameters by editing this line of code. More information can be found from https://www.blender.org/manual/render/workflows/command_line.html.
+
+### Blender Python file
+{app-root-directory}/project/static/blender/masonry.py is a file to pass parameters from a python server to the Blender. Below is the basic structure of the masonry.py file.
+
+# try to get parameters from command line 
+try:				 
+    args = list(reversed(sys.argv))
+    idx = args.index("--")
+except ValueError:
+    params = []
+else:
+    params = args[:idx][::-1]
+
+# parse parameters and assign into specific variables
+if params[0] == '-hsv_h':	
+	hsv_h = float(params[1]) / 360.0
+if params[2] == '-hsv_s':
+	hsv_s = float(params[3]) / 100.0
+if params[4] == '-hsv_v':
+    hsv_v = float(params[5]) / 100.0
+if params[6] == '-d_size':
+    d_size = float(params[7]) / 100.0
+if params[8] == '-d_density':
+    d_density = float(params[9]) / 100.0
+if params[10] == '-c_size':
+    c_size = float(params[11]) / 100.0
+if params[12] == '-c_noise':
+    c_noise = float(params[13]) / 100.0
+
+```python
+# Find a brick material and assign each value into designated material nodes.
+brick = bpy.data.objects["Brick"];
+mat = bpy.data.materials["Material"]
+nodes = mat.node_tree.nodes
+hsv_h_node = nodes.get("hsv_h")
+hsv_h_node.outputs[0].default_value = hsv_h
+hsv_s_node = nodes.get("hsv_s")
+hsv_s_node.outputs[0].default_value = hsv_s
+hsv_v_node = nodes.get("hsv_v")
+hsv_v_node.outputs[0].default_value = hsv_v
+hsv_v_node = nodes.get("d_size")
+hsv_v_node.outputs[0].default_value = d_size
+hsv_v_node = nodes.get("d_density")
+hsv_v_node.outputs[0].default_value = d_density
+hsv_v_node = nodes.get("c_size")
+hsv_v_node.outputs[0].default_value = c_size
+hsv_v_node = nodes.get("c_noise")
+hsv_v_node.outputs[0].default_value = c_noise
+```
+
+If you open one of the blend file {app-root-directory}/project/static/blender/masonry.blend, and change the layout into a compositing mode, you can see the node structure of the brick material. You can also check the same value node names that you see in a masonry.py file, such as hsv_h, hsv_s, hsv_v. That’s the way python file pass values into the blender rendering engine.
+
+By understanding this connection between server and Blender, you can add / edit / delete parameters to generate your own style of brick textures.
+
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/compositing.png)
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/hsv-node.png)
+
+### Blender Material
+Blender material uses node based structure to create a texture. The flow of direction is left to right until it reach the “Material Output” node. Figure 4. More information about using Blender node based material can be found from https://youtu.be/Heg89K3ZMDo, https:// cgcookie.com/course/shader-forge/, http://blenderdiplom.com/en/tutorials/all-tutorials.html, and http://www.blenderguru.com/tutorials/.
+
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/flow-of-nodes.png)
+
+### Color Algorithm
+Applying color is straight forward. Either you can connect RGB color picker node to Diffuse BSDF node or Combined HSV node to Diffuse BSDF node by getting each Hue, Saturation, Value values from python code.
+
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/diffuse-node.png)
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/feed-diffuse.png)
+
+### Dragging Mark Algorithm
