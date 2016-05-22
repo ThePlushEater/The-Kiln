@@ -3,4 +3,5 @@ venv/
 npm-debug.log
 project/static/render/*.*
 project/__pycache__
+
 project/static/bower_components/
