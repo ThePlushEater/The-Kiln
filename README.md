@@ -26,31 +26,30 @@ React will also be installed automatically through our package installation proc
 ## 10 Steps Installation
 _*{} is variable that can be different based on your environment._
 
-1.  Install Python interpreter from https://www.python.org/ (either 3.x or 2.x).
+*  Install Python interpreter from https://www.python.org/ (either 3.x or 2.x).
 
-2. Install Node.js from https://nodejs.org/ (latest version should be fine).
+* Install Node.js from https://nodejs.org/ (latest version should be fine).
 
-3. Install Blender from https://www.blender.org/download/ (choose a right version based on your operating system).
+* Install Blender from https://www.blender.org/download/ (choose a right version based on your operating system).
 
-4. Download or clone the Masonry package from https://github.com/captainwhale52/ Masonry, and extract any desired location on your machine.
+* Download or clone the Masonry package from https://github.com/captainwhale52/ Masonry, and extract any desired location on your machine.
 
-5. Open {app-root-folder}/project/app.py file with any text editor. In line #1, put / change the location of Blender executable file. 
+* Open {app-root-folder}/project/app.py file with any text editor. In line #1, put / change the location of Blender executable file. 
 Ex> blender = "C:/Program Files/Blender Foundation/Blender/blender.exe" (default location of Blender executable file for windows).
 
-6. Open command prompt or terminal, and check some command lines to check whether dependency libraries are installed correctly. If it shows an error message, go back to previous step and re-install libraries.
-1) python –V (should show a version of python interpreter correctly)
+* Open command prompt or terminal, and check some command lines to check whether dependency libraries are installed correctly. If it shows an error message, go back to previous step and re-install libraries.
 ```
+1) python –V (should show a version of python interpreter correctly)
 2) pip –V (should show a version of pip library)
 3) npm –V (should show a version of npm library)
 ```
+* Open command prompt or terminal, and move to a directory that the Masonry package is located. And execute `“npm install”` (for windows), `“sudo npm install”` (for Linux or Mac). This command will install all extra dependency libraries for the application.
 
-7. Open command prompt or terminal, and move to a directory that the Masonry package is located. And execute `“npm install”` (for windows), `“sudo npm install”` (for Linux or Mac). This command will install all extra dependency libraries for the application.
+* In command prompt or terminal (still in a directory that the Masonry package), execute `“npm run dev”` command. This command will compile the application and launch a local server for developing purpose.
 
-8. In command prompt or terminal (still in a directory that the Masonry package), execute `“npm run dev”` command. This command will compile the application and launch a local server for developing purpose.
-
-9. Once the command prompt shows the message “Waiting for the change…” you can open the browser and type “localhost:8000” in address box. If it shows the UI without error, the application is ready to use.
+* Once the command prompt shows the message “Waiting for the change…” you can open the browser and type “localhost:8000” in address box. If it shows the UI without error, the application is ready to use.
 	
-10. Even the server that we setup is for local server, you can still open the hotspot of your machine so that other devices within a range of Wi-Fi can access the application. Once you open the hotspot of your machine, open command prompt or terminal, and execute “ipconfig”. This command will show the list of IPs that your machine is using. Usually local server address starts from “192.168.*.*”. After finding the address, type the address + port number 8000, Ex> 192.168.173.1:8000 into the browser of a connected device.
+* Even the server that we setup is for local server, you can still open the hotspot of your machine so that other devices within a range of Wi-Fi can access the application. Once you open the hotspot of your machine, open command prompt or terminal, and execute “ipconfig”. This command will show the list of IPs that your machine is using. Usually local server address starts from “192.168.*.*”. After finding the address, type the address + port number 8000, Ex> 192.168.173.1:8000 into the browser of a connected device.
 
 ## Architecture of the Application
 Following image is the software architecture of the Masonry application. Understanding this architecture will be helpful to edit or develop the program as your own purpose.
