@@ -72,6 +72,7 @@ You can change or add parameters by editing this line of code. More information 
 ### Blender Python file
 {app-root-directory}/project/static/blender/masonry.py is a file to pass parameters from a python server to the Blender. Below is the basic structure of the masonry.py file.
 
+```python
 # try to get parameters from command line 
 try:				 
     args = list(reversed(sys.argv))
@@ -97,7 +98,6 @@ if params[10] == '-c_size':
 if params[12] == '-c_noise':
     c_noise = float(params[13]) / 100.0
 
-```python
 # Find a brick material and assign each value into designated material nodes.
 brick = bpy.data.objects["Brick"];
 mat = bpy.data.materials["Material"]
