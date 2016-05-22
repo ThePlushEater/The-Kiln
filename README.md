@@ -137,3 +137,27 @@ Applying color is straight forward. Either you can connect RGB color picker node
 ![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/feed-diffuse.png)
 
 ### Dragging Mark Algorithm
+The core idea of dragging mark is to create a randomly sized and randomly distributed dotted texture, and use the texture to create a displacement map to create a mole effect. Figure 7 shows a basic structure of dragging mark effect. The highlighted node is a DragMark node which has a functionality to create a gray texture.
+
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/dragging-mark.png)
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/dragging-mark-bump-map.png)
+
+DragMark node is not just a single node, it is a group of node contains other node structure. If you click the right upper corner of DragMark node, it will show what is inside. The basic idea of DragMark node is to create n noise texture and apply black and white color scale to generate random dotted texture.
+
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/dargging-mark-node.png)
+
+In actual blender files, you will see a node called, DragMarkComposition. It is another node combining multiple DragMark nodes to create different sizes / distributions of dragging marks.
+
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/dragging-mark-composition.png)
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/color-and-dragging-mark.png)
+
+### Crack Algorithm
+Sometimes, people want to see how it looks like when bricks get ages. As time passes, bricks tend to get a crack from weathering. Using Voronoi texture algorithm, we can create crack effect on a brick texture. Figure 12 shows a basic structure of the crack algorithm.
+
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/crack-structure.png)
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/crack-inside.png)
+
+To make a complicated story simple, it create a two slightly different size of Voronoi texture and substract one from the other, remaining edges of Voronoi texture. You can do experiment by changing values on the node, such as CrackScale, CrackThickness, NoiseScale, etc.
+
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/different-crack-style.png)
+![Masonry] (https://github.com/captainwhale52/Masonry/blob/master/manual/combined-result.png)
