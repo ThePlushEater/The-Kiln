@@ -5,7 +5,7 @@
   "scripts": {
     "dev": " concurrently \"npm run start\" \"npm run watch\" ",
     "publish": " concurrently \"npm run start\" \"npm run build\" ",
-    "start": "python project/app.py",
+    "start": "python project/app.py &",
     "watch": "webpack -d --watch",
     "build": "webpack -p"
   },
